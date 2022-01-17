@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<!-- 디스플레이 속성
+    요소를 블록과 인라인 요소중 어느쪽으로 처리할지를 정의
+    if 블록level인 div를 inline으로 처리하고 싶다면
+    div{ display : inline; }
+
+    if inline요소인 <a>를 블록level로 처리하고 싶다면
+    a { display : block;}
+    
+    inline 요소: 항상 블록 요소안에 포함되어있슴
+                 inline 요소안에 다른 인라인 요소 포함 가능
+                 컨텐츠가 끝나는 지점까지를 넓이로 가짐
+                 height, width 로 변형을 줄 수가 없다.
+                 단 line-height로 줄 높이 조절 가능
+                 text-align으로 텍스트의 중앙 좌,우측 정렬
+                 인라인 요소 다음에는 줄바꿈 없고, 우측으로 바로 이어짐
+
+                 종류 : a , img, span , strong , input , textarea ,select
+
+    block  요소: 모든 인라인 요소를 포함하고,
+                 다른 블록 요소도 일부 포함
+                 가로폭 전체의 넓이를 가지는 직사각형 
+                 블록요소 다음은 자동 줄바꿈
+                 vertical-align이 없다, text-align이 없다.
+
+                 종류 : dt,dd,ul,li,div,p,h1~h6
+    
+    inline-block 요소 : inline인데 너비와 높이를 조절 가능
+    none
+
+
+display : inline //요소를 인라인 요소처럼 표시.
+                //앞뒤로 줄바꿈 되지 않음
+        : block  //요소를 블록요소처럼 표시
+                //요소 앞뒤로 줄바꿈 됨
+        : none   //박스가 생성되지 않음
+                //공간을 차지하지 않음
+        : inline-block // inline인데, 내부는 block처럼 표시함.
+                        즉 box 모양인데, inline처럼 옆으로 늘어섬
+
+
+-->
+
+<!-- border 속성 
+    요소가 차지하고 있는 영역의 테두리를 그린다.
+    두께,모양,크기등을 함께 지정할 수 있슴.
+    span{ border: 2px solid green; }
+
+    border-color : color와 동일
+    border-width : thin,medium,thick or px,em,rem
+    border-style : none , solid(직선) , dotted(점선) ,dashed(긴점선) 
+-->
+<style>
+    div,h1,p{border: 3px solid rgb(89, 0, 255);
+       
+    }
+    dl,dt,dd{border: 1px solid rgb(199, 133, 179);
+       
+    }
+
+    span,strong,em,b{
+        display: inline;
+        border-width: 4px; 
+        border-style:solid;
+        background-color: aqua; 
+        border-color :rgb(100%,50%,50%);
+    }
+    
+    em{
+        line-height: 100px;
+    }    
+
+</style>    
+
+</head>
+<body>
+    <div> div는 블록 요소야</div>
+    <h1> H1도 블록 요소 </h1>
+    <span> span은 인라인인데...</span>
+    <span>span은 그래서 계속 이어져</span>
+    <strong>strong도 인라인이고</strong>
+    <img src ="../html 강좌/image/우주선.png" width="40" > img도 인라인이고 <b> b도 인라인</b>
+    
+    
+    <img src ="../html 강좌/image/우주선.png" width="40"> <em>em도 inline </em>
+    
+    <em>inline은 높이만 바꿀수 있지</em>
+
+    <p> p도 블록 요소네 </p>
+
+    <h1>수코딩 레스토랑 - dl dt도 블록 요소</h1>
+            <dl>
+               <dt> 라자냐</dt>
+               <dd>라자냐는 이탈리아 북부에서 유래한 파스타의 일종</dd>  
+               <dt> 필리프</dt>
+               <dd> <strong>필리프</strong>는 쌀이나 으깬 밀과 같은 곡식으로 만든 음식 </dd>
+            </dl>
+
+</body>
+</html>

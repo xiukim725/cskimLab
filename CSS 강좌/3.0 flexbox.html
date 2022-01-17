@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flexBox</title>
+
+<!-- flexbox
+    flexbox module은 item의 공간배분과 정열 기능을 제공하는 1차원 layout model.
+    layout을 다룰때, 하나의 차원 (행 or 열)만 처리 가능함.
+
+    flex 속성요약
+
+    1) container 속성
+        display: flex / in-line flex  
+                - item이 아닌 container를 flex는 수직 inline-flex는 수평배열
+                https://heropy.blog/2018/11/24/css-flexible-box/
+
+        flex-direction: row / column /row-reverse / column-reverse
+                - item의 주축을 설정
+        flex-wrap : nowrap / wrap / wrap-reverse
+                - items는 주축의 크기와 관계없이 default는 줄바꿈하지 않음.
+                - 줄바꿈 할려면 wrap 이나 wrap-reverse를 사용
+        justify-content : start / end / center / space-around / space-between / space-evnly
+        align-items : stretch /start / end/ center /
+    
+    2) item 속성
+        flex-grow : 1/2/3
+        flex-shrink :
+        flex :1
+        align-self : start/end/center
+        order:
+    ------------------------------------------------------------------------------
+
+    주축 : flex-direction 속성으로 지정,
+        row          : 인라인방향,즉 좌우방향
+        row-reverse  : row의 반대방향
+        column        : 블록방향, 상하방향 
+        column-reverse 
+
+        여기서 row, column이 헷갈릴수 있다.
+        만약 3개의 box가 수평방향으로 배열되어있다면, 
+        칼럼1,칼럼2,칼럼3해서 칼럼이 기준이되어 칼럼방향이 아닌가 착각할 수 있으나,
+        그렇게 보지말고, 우선 칼럼도 로우도 한개만 있다고 생각하고,
+        방향의 관점에서만 보자. flex-direction아닌가? 
+        방향!!!
+        즉 가로방향으로 3개의 box가 베열되어있는 것이다.
+        헷갈릴수 있으니 참고 !!!
+
+        그렇지만, 화면에 가로방향이 오직 1개만 있는것은 아니다.
+        여러개의 가로방향의 flex가 있을수 있다.
+        이때는 container가 여러개 있다고 생각하면 된다.
+
+    교차축 : 주축에 수직인 축
+
+    1) flex container 속성 
+        flexbox가 놓여있는 영역
+        container 영역의 display 값을 display : flex or inline-flex 로 설정
+        이 컨테이너의 child 영역이 flexbox임.
+
+        contaniner 설정후 default 조건
+        - flexbox는 행방향으로 나열 ( flex-direction 기본값 row)
+        - 항목은 주축의 시작선에서 시작
+        - 항목은 추축 위에서 늘어나지는 않지만 줄어들수 있슴
+        - 항목은 교차축의 크기를 채우기위해 늘어남
+        - flex-basis : auto;  //default
+        - flex-wrap  : nowrap //default 
+        
+        flex-wrap : wrap / wrap-reverse / nowrap
+        : 항목을 여러행에 나열되도록 하는 속성,
+          default는 부모요소의 크기에 관계없이 한줄에서만 표기되고 줄바꿈하지 않음 
+        
+        flexbox는 1차원 모델이지만, 여러행에 나열되도록 할 수 있슴.
+        이때 각행이 새로운 flex contanior라 생각해야함
+        즉 공간배분은 해당 행에서만 이루어지며 다른 행은 영향을 미치지 않음
+        
+        flex-flow  :
+        flex-direction 과 flex-warp의 축약속성, 첫번째가 direction임
+        flex-flow : row wrap
+        
+        justify-content 
+            주축을 따라 flex 항목 행을 정렬하는 방식을 지정
+            default : flex-start
+                flex 컨테이너의 시작선에서 부터 정렬
+            
+            flex-start
+            flex-end
+            center        
+            space-around  // 좌우의 gap이 같고, 내부의 gap이 서로 같음 
+            space-between // 좌우의 gap이 없고, 내부 gap이 균일함.
+            space-evenly  // 좌,우의 gap을 포함해 각 항목의 gap이 균일함  
+        
+        align-items
+            
+            교차축을 따라 flex 항목 열을 정렬하는 방식을 지정
+            default : stretch // 
+            - flex항목의 높이는 설정되어 있으면 설정높이로 
+            안되어있으면 컨테이너의 높이가 설정
+            
+            flex-start : 각항목의 첫행이 교차축 방향의 시작선에 정렬
+            flex-end   : 각항목의 끝행이 교차축 방향의 끝선에 정렬
+            center     : 각항목이 컨테이너의 center에 정렬
+
+        align-content:
+           
+            flex-warp : warp 일때, 즉 화면을 줄이면 요소가 떨어질때, 
+            여러줄 사이의 간격을 지정할 수 있슴. 1줄은 의미없슴.
+
+            flex-start
+            flex-end
+            center
+                
+    2) flex 항목 속성
+
+    flex-grow 
+        주축의 남는 공간을 이용해 
+        각항목의 원래 크기에 비율만큼 더해준다.
+        만약 3개의 item에 각각 1,2,1,로 flex-grow를 부여하면 
+        각 item의 크기가 1:2:1이 되는게 아니고,
+        원래 남은  space 크기가 1:2:1의 비율 영역로 각 item에 배분됨.
+        즉 실제 item 크기가 1:2:1이 아니라는 말이다.
+        
+    실제로 item의 크기를 1:2:1로 만들고 싶은 경우에는 flex-basis:0 
+    
+    flex-basis
+        default :auto // 항목이 크기를 갖는지 확인하고 그 크기만 할당
+                      // 크기가 할당되어 있지않으면 flex-basis값을 사용
+    
+        flex-basis:0 // 항목이 크기를 갖지 않는다는 의미, 
+                    그러므로 전체 공간을 여백으로 인식하는 상태이므로
+                    flex-grow 를 1:2:1로 설정하면 
+                    item의 크기가 정말 1:2:1이 된다.
+    
+    flex-grow를 양수로 지정하면 
+    flex항목별로 주축 방향크기가 flex-basis값 이상으로 늘어남. 
+    
+    flex-shrink
+        주축의 공간이 부족할때, 각 항목의 사이즈를 줄이는 방법
+        flex-contanior의 크기가 부족하고, flex-shrink가 양수이면
+        해당 항목은 flex-basis가 지정한 값보다 줄어듬
+
+    flex 축약형 속성
+        flex-grow, shrink, basis 값을 순서대로 지정함
+
+        flex :1 은 grow :1 , shrink : 1 , basis : 0 이므로 
+        굳이 위의 flex-grow를 사용할때 처럼 
+        flex-basis를 별도 지정할 필요가 없는 편리함이 있다. 
+        
+        // flex 1 1 auto ;
+            - flex : initial // flex: 0 1 auto 
+              - flex-basis보다 커지지 않고, contanior가 작으면 줄어들며,
+                지정된 크기or 내부요소크기만큼 공간차지
+            - flex : auto  // flex : 1 1 auto 
+            - flex : none  // flex : 0 0 auto 
+            - flex : 1     // flex : 1 1 0
+            - flex : 2     // flex : 2 1 0
+
+    align-self 
+        aline-items와 같은 교차축 속성, 
+        단 align-items는 container속성으로 모든 flex item에 해당되나,
+        align-self는 특정item에 국한된 속성
+
+    order :
+        order : 1 / -1 / 2/ -2
+        default 는 0 , 따라서 0보다 작으면 왼쪽으로, 크면 오른쪽으로 배치됨.
+        order값에 의해 display 순서를 변경할 수 있다.    
+
+
+https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
+
+flex item 설명페이지   
+https://naradesign.github.io/flex-direction-order.html
+
+flexbox를 연습하는 너무훌륭한 game
+https://flexboxfroggy.com/#ko
+
+    -->
+
+<style>
+    *{
+        box-sizing : border;
+    }
+    .box { display: flex;
+        /* width : 800px;
+        height : 400px;
+        border : solid 5px black; */
+        flex-direction: row; /*.box가 flex contanier*/
+        flex-wrap : wrap;
+        justify-content:flex-start;
+        align-items:flex-start;
+        align-content: center;
+      
+}
+
+    div{
+        /* width : 100px; */
+        background: blue;
+        color : white;
+        border : solid  2px rgb(180, 202, 154); 
+        flex-basis: auto;
+        /* flex-grow: 1;  */
+    }
+
+    .box :nth-child(1){
+        flex-grow: 1; }
+    .box :nth-child(2){
+        flex-grow: 1;
+        align-self: center;
+    }
+    .box :nth-child(3){
+        width : 100px;
+        height: 300px; }
+    .box :nth-child(4){
+        flex-grow: 2; 
+        align-self:flex-end }
+
+
+
+</style>
+
+</head>
+<body>
+    <div class="box">
+        <div>One</div>
+        <div class='two'>Two</div>
+        <div>Three
+            <br>has
+            <br>extra
+            <br>text
+        </div>
+        <div>four</div>
+    </div>
+    
+</body>
+</html>

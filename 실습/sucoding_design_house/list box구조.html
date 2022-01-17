@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Box 구조</title>
+ 
+    
+    <style>
+        /*웹페이지에 리스트를 넣을 때 앞에 기호를 제거해야하는 경우도 종종 있습니다. 
+        이럴 때는 ul 요소의 list-style 속성의 값을 none으로 바꿔줘야 합니다. 
+        또한 기호를 제거했는데 앞에 여백이 마음에 들지 않아 제거하고 싶다면, 
+        ul 요소의 padding-left 속성의 값을 0으로 해줘야 합니다. 
+        
+        */
+        /* 출처: https://blog.edit.kr/entry/CSS-ul과-ol에-속한-li-앞에-나오는-기호과-숫자-표시-없애기 [소금인형 - SW개발자?] */
+        .ulist { list-style: none; }
+        
+        /* 출처 :https://bskyvision.com/993 */
+        
+        #example1 li {
+        list-style: none;
+        }
+        
+        #example2 {
+            padding-left: 0;
+        }
+
+        #example2 li {
+            list-style: none;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <ul class="ulist"> 
+        <li>Coffee</li> 
+        <li>Tea 
+            <ul > 
+                <li>Black tea</li> 
+                <li>Green tea 
+                    <ul > 
+                        <li>China</li> 
+                        <li>Africa</li> 
+                    </ul> 
+                </li> 
+            </ul> 
+        </li> 
+        <li>Milk</li> 
+    </ul>
+
+    
+    <h1>기본 리스트</h1>
+    <ul id="example0">
+        <li>리스트1</li>
+        <li>리스트2</li>
+        <li>리스트3</li>
+    </ul>
+ 
+    <h1>앞에 기호 제거된 리스트</h1>
+    <ul id="example1">
+        <li>리스트1</li>
+        <li>리스트2</li>
+        <li>리스트3</li>
+    </ul>
+ 
+    <h1>기호 및 여백도 제거된 리스트</h1>
+    <ul id="example2">
+        <li>리스트1</li>
+        <li>리스트2</li>
+        <li>리스트3</li>
+    </ul>
+
+
+</body>
+</html>

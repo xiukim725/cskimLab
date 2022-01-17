@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>full height screen using vh </title>
+
+    <!--
+        세로폭중 가변대상인 요소의 높이를 100vh - npx로 설정한다.
+        height : calc ( 100vh - npx)  
+
+        https://stackoverflow.com/questions/90178/make-a-div-fill-the-height-of-the-remaining-screen-space/44607939#44607939
+    -->
+
+
+    <style>
+
+        * {
+            margin : 0 ;
+            box-sizing :border-box;
+            
+        }
+
+            [class]{
+                border : 10px solid black; 
+            }
+           .header { height: 200px; 
+                    
+                     background-color: green}
+            .body {
+                margin-top : -10px;
+                height: calc(100vh - 300px + 20px); 
+                   /*header 200px , footer 100px ==> - 300px 
+                     body margin.top : -10px , footer margin-top : -10px ==> + 20px */
+                
+                     background-color: gray;
+               }
+            .footer { height: 100px;
+                      margin-top: -10px; 
+                      bottom: 0; }
+    </style>    
+
+
+</head>
+<body>
+            <div class="header">
+                <h2>My header</h2>
+            </div> 
+            <div class="body">
+                <p>The body</p>
+            </div> 
+            <div class="footer">
+                My footer
+            </div>
+</body>
+</html>

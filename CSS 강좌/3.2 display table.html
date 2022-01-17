@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- display: table 
+        https://www.biew.co.kr/entry/%EC%9B%B9%ED%8D%BC%EB%B8%94%EB%A6%AC%EC%85%94%EA%B0%80-%EC%95%8C%EA%B3%A0%EC%9E%88%EC%96%B4%EC%95%BC-%ED%95%A0-display-table-%EC%86%8D%EC%84%B1
+
+        동일한 넓이와 간격을 가진 컨텐츠를 만들때 사용
+
+        부모요소에 display: table; table-layout-fixed;
+        자식요소에 display: table-cell;
+        
+        
+     -->
+     <style>
+        * {
+        margin: 5;
+        padding: 0;
+        font-family: '나눔고딕','NanumGothic','맑은 고딕','Malgun Gothic',Helvetica,AppleGothic,Sans-serif;
+        font-size: 14px;
+        }
+
+        .title_item {
+        display: block;
+        font-size: 16px;
+        }
+
+        .title_item,
+        .desc_item {
+        margin-top: 10px;
+        }
+
+        .desc_item {
+        font-size: 12px;
+        }
+
+        /* 이곳이 바로 핵심이죠!! ↓ */
+
+        .boxwrap {
+        display: table; /* 핵심! */
+        width: 100%;
+        background-color: #f3f3f3;
+        }
+
+        .boxwrap .box + .box{
+        border-left: 1px solid #ccc;
+        }
+
+        .boxwrap .box {
+        display: table-cell; /* 핵심! */
+        vertical-align: middle; 
+        text-align: center;
+        padding: 20px;
+        }
+
+/* 이곳이 바로 핵심이죠!! ↓ */
+
+     </style>
+</head>
+<body>
+    <div class="boxwrap">
+        <div class="box">
+            <span class="thum"><img src="http://via.placeholder.com/40x40" alt="샘플이미지"></span>
+            <strong class="title_item">안녕 나는 제목이야</strong>
+            <p class="desc_item">안녕 나는 설명이야.<br>기왕이면 두줄 이상으로 나오게 하기위해 글을 많이 쓸거야!</p>
+        </div>
+        <div class="box">
+            <span class="thum"><img src="http://via.placeholder.com/40x40" alt="샘플이미지"></span>
+            <strong class="title_item">안녕 나는 제목이야</strong>
+            <p class="desc_item">안녕 나는 설명이야.<br>기왕이면 두줄 이상으로 나오게 하기위해 글을 많이 쓸거야!</p>
+        </div>
+        <div class="box">
+            <span class="thum"><img src="http://via.placeholder.com/40x40" alt="샘플이미지"></span>
+            <strong class="title_item">안녕 나는 제목이야</strong>
+            <p class="desc_item">안녕 나는 설명이야.<br>기왕이면 두줄 이상으로 나오게 하기위해 글을 많이 쓸거야!</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>before after는 객체안에서 삽입되는가?</title>
+    <!--
+        before/after를 이용하여 호출요소의 contents앞,뒤가 아니라
+        호출요소의 시작선과 끝선에 contents를 삽입할 수 있다.
+
+        이렇게 할려면 호출요소를 display:relative로 선언하고 
+
+        추가할 contents에 display:absolute 조건을 선언하면  
+
+        before/after는 객체의 안에서 삽입된다. 객체의 밖이 아니다.
+
+        또한 absolute를 지정하더라도 
+        left/right/top/bottom 속성 모두를 지정하지않으면, 
+        
+            ::before는 호출 요소의 시작선에서 (기존 contents를 밀어내지 못하고 겹친다)
+            ::after는  호출요소의 contents 다음에서 rendering되지만,
+            
+        그런데 left/right 속성을 지정하면
+        ::before/ after와 관계없이
+
+        left:0는 호출 요소의 시작선에서 시작하여 rendering되고,
+        right:0는 추가 요소의 끝선이 호출요소의 끝선에 맞추어 rendering된다.
+
+        만약 left/right를 쓰지않으면서,
+        contents의 위치를 이동하고 싶을때는
+        maring-left/ margin-right을 사용하면 된다.
+
+
+     -->
+    <style>
+        
+        div p{
+            display: block;
+            background-color: orange;
+            position: relative;
+            opacity: 0.4;
+            width: 200px;
+
+        }
+
+        div p:first-child {
+            /* display: inline-block; */
+            position:relative    ;
+        }
+
+        div p:first-child::before{
+            content: "";
+            background-color: rgb(204, 51, 51,10);
+            display: block;
+            opacity: 1;
+            position: absolute;
+            
+            width: 5px;
+            height: 10px;
+           
+        }
+
+        div p:last-child {
+            /* display: inline-block; */
+            position:relative    ;
+        }
+
+
+
+        div p:last-child::after{
+            content: "";
+            background-color: rgb(204, 51, 51,10);
+            /* display: inline-block; */
+            position: absolute;
+            
+            width: 5px;
+            height: 10px;
+        }
+
+        /* div p:last-child::after{
+            content:"";
+            color: white;
+            opacity: initial;
+            top:0;
+            right:0;
+            width:5px;
+            height:15px;
+            background-color:#333; 
+        } */
+
+
+        ul{
+            list-style:none
+        }
+        
+        ul li{
+            position:relative;
+            display:inline-block;
+            width:100px;
+            text-align:center;
+            background-color: orange;
+        }
+
+        ul li:first-child::after{
+            position:absolute;
+            content:"";
+            top:0;
+            left:0;
+            width:5px;
+            height:15px;
+            background-color:#333;
+          
+        }
+
+        ul li:nth-child(2)::before{
+            position:absolute;
+            content:"";
+            top:0;
+            right:0;
+            width:5px;
+            height:15px;
+            background-color:#333;
+          
+        }
+
+        ul li:nth-child(3)::before{
+            position:absolute;
+            content:"";
+           
+            width:5px;
+            height:15px;
+            background-color:#333;
+            opacity: 50%;
+          
+        }
+
+        ul li:nth-child(4)::after{
+            position:absolute;
+            content:"";
+           
+            width:5px;
+            height:15px;
+            background-color:#333;
+            opacity: 50%;
+            
+          
+        }
+
+    </style>
+
+</head>
+<body>
+    <div>
+        <p> before </p>
+        <p> after</p>
+    </div>
+    <ul>
+        <li>Menu 1</li>
+        <li>Menu 2</li>
+        <li>Menu 3</li>
+        <li>Menu 4</li>
+        
+    </ul>
+
+
+
+</body>
+</html>

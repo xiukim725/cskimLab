@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>size단위중 %와 number의 차이</title>
+
+    <!-- 
+        %      : 상위객체의 %값
+        number : 해당객체의 배수
+             number는 단위가 붙지않은 숫자임. 
+             즉 1.5 , 2 , 0.5..
+             1.5em이나, 10px등은 단위가 붙음으로 number가 아님  -->
+
+    <style>
+        .pa {
+            font-size: 10px;
+            background-color: chocolate;
+        }
+
+        #p1{
+            font-size: 2;
+            height : 500%;
+            background-color: coral;
+        }
+    </style>    
+
+
+</head>
+<body>
+    <p class='pa'> 상위객체 fontsize : 10px;
+        <p id='p1'> 하위객체 fontsize : 20px ,200%</p>
+        <p id='p2'> 하위객체 fontsize : 20px ,2</p>
+
+    </p>
+
+</body>
+</html>

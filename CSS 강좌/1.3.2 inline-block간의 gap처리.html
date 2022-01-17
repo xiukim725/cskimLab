@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inline-block간의 gap 처리 방법에 대하여</title>
+
+    <!-- inline-block에 의한 가로 배열 
+    
+        해당 box가 모두 display:inline-block이 선언되어있어야 가로 배열된다.
+        
+        box와 box사이는 fontsize 16px 기준 about 4px만큼의 공백이 존재한다.이유는
+            <div class='box1'></div>
+            <div class='box2'></div>
+        2개의 box를 html에서 표현할때 
+           첫번째box의 </div>와 두번째box의 <div> 사이에 space가 1개 들어간것으로 CSS는 인식한다.
+           이는 bug가 아니고 rendering의 방법상의 문제이다.
+    
+        이를 해결하기위해 5)가지 방법이 있는데, 
+        
+        html 방식
+         - 공백제거 
+           1)   <div class='box1'></div
+                ><div class='box2'></div>
+           2)   <div class='box1'></div>//
+                <div class='box2'></div> 
+        
+        css 방식)
+
+         1) 상위 객체의 font-size를 0으로 , 본객체의 font-size는 1rem으로 원복
+         2) 두번째 box의 margin을 -4px을 해주면 된다.
+         3) inline-block을 쓰지않고 float 속성을 사용하도록
+         4) inline-block을 쓰지않고 flex 속성을 사용하도록    
+        
+
+         [CSS] inline 속성일 때, 4px의 여백에 대하여
+         https://norux.me/63
+    -->
+
+    <style>
+         /*margin을 0으로 , border-box로  */
+        *{
+            margin : 0;
+            box-sizing: border-box;
+        }
+
+        .con1 div{
+            display : inline-block;
+            background-color: rgb(218, 230, 230,0.4);
+            border :5px solid gray;
+            width : 200px ; height: 50px;
+        }
+
+
+        /* inner box에 border를 씌우고, size를 200px로 
+           [class*='b'] // b를 포함하는 모든 class를 가진 div요소 
+           div[class*='b']와 같다.   
+        
+        */
+        [class*='b']{
+            
+            border : 5px solid gray;
+            background-color: rgb(218, 230, 230,0.4);
+
+            width : 200px ; height: 50px;
+            display: inline-block;
+        }
+
+        
+        /* margin을 -4px하여 붙이기*/
+
+        .round1 .box2{
+            margin-left: -4px; 
+            background-color: rgba(47, 153, 153, 0.4);
+            width : calc( 100vw - 210px -50px) ;
+        }
+        
+        /* 상위객체의 font-size를 0으로하여 붙이기 */
+
+        .round2{
+            font-size : 0;
+            /* margin-top: -rem;      */
+            
+                    /* 상위box와 하위box간에도 html의 특성상 공백이 발생한다.
+                    이공백을 없애기위해 em을 쓰면 font-size가 0이므로 안된다
+                    결국 rem을 써서 html의 font-size를 가져온다  */
+            height : calc ( 100vh - 200px);
+                                            }
+        .round2 div{
+            font-size: 1rem;
+
+        }
+
+        .round3 div{
+            float :left;
+
+        }
+
+        .round4 {
+            clear: both;
+            display:flex
+        }
+    </style>
+
+</head>
+<body>
+
+    
+    <div class='con1'>
+        <div >공백삭제않됨</div>
+        <div >box2</div>
+    </div
+    >
+    <br>
+    <P> 공백삭제의 5가지 방법 </P>
+    <div class='con1'>
+        <div >태그를 다음줄에서 닫기</div
+        ><div >box2</div>
+    </div>
+
+    <div class='con1'>
+        <div >공백사이주석처리</div><!--
+        --><div >box4</div>
+    </div>
+ 
+    <div class='round1'>
+        <div class='box1'>box1</div>
+        <div class='box2'>margin-4px에도 gap존재</div>
+    </div>
+    <div class='round2'>
+        <div class='box1'>box3</div>
+        <div class='box2'>fontsize:0</div>
+    </div>
+ 
+    <div class='round3'>
+        <div class='box1'>float:left</div>
+        <div class='box2'>float</div>
+    </div>
+
+    <div class='round4'>
+        <div class='box1'>display:flex</div>
+        <div class='box2'>box4</div>
+    </div>
+     
+
+</body>
+</html>

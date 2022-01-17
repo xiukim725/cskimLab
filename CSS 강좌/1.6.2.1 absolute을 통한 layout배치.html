@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>absolute을 통한 layout배치</title>
+    <style>
+
+        *{
+            margin : 0;   }
+        
+            div{
+            background-color: mediumpurple;
+            border:mediumslateblue 5px solid;
+            width : 40% ;height :30vh;
+            block-size: border;
+        }
+
+        /* right박스를 left박스의 우측으로 보내고 leftbox아래에 bottom박스를 둔다. */
+
+        .right{
+            position : absolute;
+            left: calc(40% + 5px) ;
+            top:0px;
+            height : calc(60vh + 5px);
+            width : 60%;
+        }
+        .bottom{
+            position: relative;
+            top: -5px;
+        }
+
+        sec {
+            width : 100%; height: 20px;
+            /* border :mistyrose 1px solid; */
+            display : block;
+            background-color: olive;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class='left'>좌측</div>
+    <div class='right'>우측
+        <sec>aaa</sec>
+        <sec>bbb</sec>
+        <sec>ccc</sec>
+
+    </div>
+        
+    <div class='bottom'>좌측의아래</div>
+</body>
+</html>

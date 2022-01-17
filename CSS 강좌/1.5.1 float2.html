@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float과 상위객체</title>
+
+<!-- float 이나 clear는 float처리 하려는 객체의 css에 선언해야한다.
+     float:left의 부모요소의 text는 float박스 위에 나타나는게 아니라 
+     float박스 우측에 렌더링된다. 
+     
+-->
+<style>
+    section{
+        width : 50vw ; height : 200px;
+        background-color: aqua;
+        float : right;
+    }
+
+    .box {
+        width : 20%; height : 20%;
+        background-color: blue;
+        color : white;
+        float : left;
+        
+    }
+
+    .b{
+        background-color: rgb(211, 153, 47);
+        float:right;
+        text-align: center;
+        height: 30%;
+        /* line-height: 250%; */
+    }
+
+    section + p {
+        clear : both;
+        font-size: 0.5em;
+    }
+
+    section p {
+        
+        font-size: 0.5em;
+        clear : left;
+    }
+</style>
+</head>
+<body>
+    body
+    <section> section
+        <div class ='box a'>aaaa</div>
+        <div class ='box b'>bbbb</div>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam, tempora minus. 
+        </p>     
+    </section>
+
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt optio temporibus natus hic magni adipisci dolores, mollitia culpa vel nihil vero iure quos enim cupiditate nobis neque dolorem asperiores reprehenderit.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae numquam aperiam tempora, asperiores autem voluptatem ex nemo dolorem doloremque? Beatae laudantium commodi recusandae veritatis adipisci, deserunt repellat et in sed.
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum veritatis earum laudantium reiciendis odit similique magni ad quos, voluptas adipisci in quaerat ab hic optio dignissimos et accusantium non quibusdam.
+    </p>
+</body>
+</html>

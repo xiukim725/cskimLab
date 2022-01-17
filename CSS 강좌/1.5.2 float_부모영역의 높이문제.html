@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float_부모요소의높이문제</title>
+
+    <!-- float요소가 부모요소의 영역을 초과할때, 
+        부모요소의 높이를 반영하지 않는 문제 해결 
+    
+        1) 부모요소뒤에 빈box를 추가하고, clear:both하면 해결됨
+         
+        .fa:after {
+                content : '';
+                display : block;
+                clear :both;
+            }
+
+        2) 다른 2가지 방법 더 있으나 추천하지 않음.    
+    https://webruden.tistory.com/68
+    -->
+
+        <style>
+            .fa {
+                border: 5px solid rebeccapurple ; 
+                width : 200px ; 
+                min-height: 50px;
+
+            }
+
+            .fa:after {
+                content : '';
+                display : block;
+                /* clear :both; */
+            }
+            .ch {
+                border: 2px solid skyblue;
+                width : 92px;
+                height: 100px;
+                float : left;
+            }
+        </style>
+</head>
+<body>
+    <div class = 'fa'>
+        <div class ='ch'>AAA</div>
+        <div class ='ch'>BBB</div>
+    </div>
+</body>
+</html>

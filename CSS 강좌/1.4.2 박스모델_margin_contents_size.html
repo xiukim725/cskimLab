@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margin과 size</title>
+
+    <!-- size와 margin 과 contents
+
+         height : 부모요소의 높이를 지정하지 않으면 자식요소의 높이의 합이 부모요소의 높이가 된다
+                  contents가 추가되게되면 자동으로 높이는 커지게 되고,
+                  자식요소는 contents 아래에서부터 배치된다.           
+         
+
+         width :  부모요소의 넓이를 지정하지 않으며 viewport넓이가 자동지정되고, 
+                  지정된 부모요소의 크기가 자식요소보다 작더라도 무시하고 부모 크기대로 표현된다.
+         
+         contents : 띄어쓰기하지 않으면 줄바꿈하지 않고, 요소의 폭을 넘어서서 렌더링된다.
+                    띄어쓰기된 시점에서 charcter의 수를 계산하여 폭을 넘어서면 다음줄에 렌더링된다.
+                    단 2byte charactor(한글)등은 요소의 폭을 넘으면 줄바꿈한다.
+
+         margin : + , - 모두 가능하며,
+                  margin을 이용하면 box의 위치를 임의의 위치로 이동가능하다. 
+        
+                  자식요소의 margin이 0이면 부모요소에 좌/상단에 붙어서 렌더링되고,
+                  부모요소에 contents가 있으면 contents의 최하단 좌측에서부터 렌더링된다.
+    -->
+    <style>
+        /* round1는 크기를 정하지않았으나, 자식의 높이에의해 높이가 자동결정되었슴*/
+        
+        * {
+            box-sizing: border-box;
+        }
+
+        .round1{
+            border : 3px gray solid;
+            width : 200px;
+            z-index: 1000;
+        }
+
+        .round1 div{
+            width: 100px;height: 100px;
+            
+            border: 5px solid tomato;
+            padding : 10px 20px;
+            background-color: teal;
+            display: inline-block;
+        }
+
+
+        /* .round1 .border{
+            width: 100px;height: 100px;
+            
+            border: 5px solid tomato;
+            padding : 10px 20px;
+            background-color: teal;
+            
+        }
+        
+        
+        .round1 .content{
+            width: 100px;height: 100px;
+            border: 5px solid tomato;
+            padding : 10px 20px;
+            background-color: teal;
+            margin-left : 100px;
+            margin-top : -100px;
+
+        } */
+        .round2 {
+            height: 150px;width : 150px;
+            border : 2px rebeccapurple solid;
+            z-index: 1000;
+        }
+
+        .round2 .border{
+            width: 200px;height: 200px;
+            border: 5px solid tomato;
+            padding : 40px;
+            background-color:gray ;
+            opacity: 0.3;
+     
+          
+        }
+        
+        
+        .round2 .content{
+            width: 100px;height: 100px;
+            border: 5px solid tomato;
+            padding : 5px;
+            background-color: rgb(94, 99, 124);
+            margin-top : -200px;
+            margin-left : 200px;
+        }
+    </style>
+
+</head>
+
+<body>
+    
+    <div class='round1'>  
+        <div class ='border'></div>
+        <div class ='content'>Lorem, ipsum dolor.</div>
+    </div>
+
+    <br><br><br>
+
+    <div class='round2'> Lorem ipsum dolor sit amet.
+        <div class ='border'>IfyouwriteKorean,youdon'ttakeofftherightside of the BOX. English is out of the question.</div>
+        <div class ='content'>한글을쓰면 BOX의 우측을 .</div>
+    </div>
+    
+    <br><br>
+    
+</body>
+</html>

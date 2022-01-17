@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vertical-align과 text 정렬</title>
+
+    <!-- vertical-align과 text 정렬
+         vertical-align에 의해 자식요소 text가 어떻게 정렬되는가 알아보자
+    
+         1) 부모font, 자식font 및 부모의 line-height나 부모의 text 유무, 대소에 관계없이
+            vertical-align은 작동된다.
+
+         2) vertical-align = top; 
+            그줄에 부모font보다 큰 자식 font가 있을때는 자식font의 소문자 상단이 정렬의 상단이되고
+            없을때는 부모font의 text-top의 상단이 top의 상단이 된다.     
+         
+         3) 부모font의 크기가 line-height보다 작을때
+            text-top과 text-bottom은 뒤집혀서 나타난다. ???
+            그런데,
+            line-height 속성을 number (font size의 number배) 로 설정하면 정상적으로 나오고
+            %나 , px로 설정하면 뒤집힌다.
+
+            부모속성의 line-height 속성에 따른 자식속성의 line-height size변화
+            line-height : number // 자식 font * number
+                        : % ,    // 부모 fontsize의 %
+    
+    -->
+    <style>
+        
+        div {
+            background-color: burlywood;
+            font-size: 18px;
+            line-height: 1;
+          
+        }
+        
+        span{
+            font-size: 16px;
+            line-height:3;
+        }
+
+        .ch1{ vertical-align: top;
+              color :crimson}
+        .ch2{ vertical-align: bottom;
+              color :crimson}
+        .ch3{ vertical-align: text-top;
+              }
+        .ch4{ vertical-align: text-bottom;
+              }
+        .ch5{ vertical-align: sub;}
+        .ch6{ vertical-align: super;}
+
+        .linesmall{
+            font-size: 32px;
+            line-height:30%;
+            width : 1000px;
+        }
+        .linebig{
+            font-size: 32px;
+            line-height: 2;
+            width : 1000px;
+        }
+        #big{
+            font-size: 80px;
+        }
+        .fontsmall{
+            font-size: 10px;
+            line-height: 50px;
+            width : 1000px; 
+        }
+    </style>
+</head>
+
+<body>
+    1)부모요소의 font-size=30px, text가 있을때
+    <div> parent baseline 
+         <span class="ch1">top</span>
+         <span class="ch2">bottom</span>
+         <span class="ch3">text-top</span>
+         <span class="ch4">text-bottom</span>
+         <span class="ch5">sub</span>
+         <span class="ch6">super</span><br>
+         parent baseline 
+         <span class="ch1">top</span>
+         <span class="ch2">bottom</span>
+         <span class="ch3">text-top</span>
+         <span class="ch4">text-bottom</span>
+         <span class="ch5">sub</span>
+         <span class="ch6">super</span><br>
+         
+    </div>    
+    <br>
+    2)부모요소의 font-size=30px, text가 없을때 <br>
+     부모요소의 text여부와 무관하게 vertical-align이 작동함을 알수있다.
+    <div>  
+        <span class="ch1">top</span>
+        <span class="ch2">bottom</span>
+        <span class="ch3">text-top</span>
+        <span class="ch4">text-bottom</span>
+        <span class="ch5">sub</span>
+        <span class="ch6">super</span>
+   </div>    
+    
+     3) vertical.align=top만 있을때 <br>
+        top은 text-top의 위치에 position된다.
+    <div>  Parent
+        <span class="ch1">top</span>
+          
+    </div>
+    <br>
+    4) 2줄이상 line-height: 10px , font-size : 30px 일때,  text-top과 text-bottom
+    <div class ='linesmall'>lineSmall 
+        <span class="ch3">text-top</span>
+        <span class="ch4">text-bottom </span>
+    </div>
+
+    <div class ='linesmall'>lineSmall 
+        <span class="ch3">text-top</span>
+        <span class="ch4">text-bottom </span>    
+          
+    </div>
+    <div class ='linesmall'>lineSmall 
+        <span class="ch3">text-top3</span>
+        <span class="ch4">text-bottom3 </span>    
+        <apan id='big'> big font</apan>
+
+        <span class="ch1">top</span> 
+        <span class="ch2">bottom</span>
+    </div>
+    <br><br>
+
+    4) 2줄이상 line-height: 50px , font-size : 30px 일때
+       <br>
+        - text-bottom이 위로, text-top이 아래로 내려오는 이상한 현상이 발생한다.
+       <br>
+        - line내에 부모요소의 line-height or 폰트보다 font-size가 큰 text가 있으면
+       <br>
+       vertical-align=top은 그 text의 소문자 상단이 top이 된다. 
+    
+    <div class ='linebig'>line larger than font
+        <span class="ch3">text-top1</span>
+        <span class="ch4">text-bottom1 </span>
+        <span class="ch1">top</span>
+        <span class="ch2">bottom</span>
+    </div>    
+    <div class ='linebig'>line larger than font
+        <span class="ch3">text-top2</span>
+        <span class="ch4">text-bottom2 </span>    
+        <span class="ch1">top</span> 
+        <span class="ch2">bottom</span> 
+    </div>
+    <div class ='linebig'>line larger than font
+        <span class="ch3">text-top3</span>
+        <span class="ch4">text-bottom3 </span>    
+        <apan id='big'> big font</apan>
+
+        <span class="ch1">top</span>  
+    </div>
+
+    5) 부모폰트가 자식폰트보다 작을때도 결과는 같다
+    <div class ='fontsmall'> parent font smaller than child
+        <span class="ch3">text-top1</span>
+        <span class="ch4">text-bottom1 </span>
+        <apan id='big'> big font</apan>
+        <span class="ch1">top</span>
+        <span class="ch2">bottom</span>
+
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- box-sizing을 border-box로 수정하지않은채 
+         padding을 추가하면 box가 커지는 문제가 발생한다.당연히
+         
+    -->
+
+    <style>
+        * {box-sizing:content-box}
+        
+        .b2 {
+            padding-top: 30px;
+        }
+        
+        div{
+            width : 100px ; height: 100px;
+            background-color: teal;
+            display: inline-block;
+            vertical-align: top;
+            color: thistle;
+            padding-left: 10px;
+            
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class='box b1'>box</div>
+    <div class='box b2'>padding-top</div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구조의사클래스</title>
+    
+    <!-- 구조의사클래스 ( structural pseudo-class) 
+        html요소의 계층구조에서 특정 위치에 있는 요소를 선택할수 있슴.
+
+        :의 앞자리엔 부모요소가 아닌 자식요소들(묶음)이 작성되어야한다.
+        부모요소가 오면 않된다.
+
+        children:first-child 이렇게 되어야한다.
+        parent:first-child 가 되면 않된다.
+        물론 parent children:first-child 는 당연히 가능하다.
+        
+        children:first-child : children중 첫번째요소
+        children:last-child  : children중 마지막요소 
+        children:nth-child   : children중 n번째 요소
+        children:nth-last-child : children중 끝에서 n번째 요소
+        
+        children:first-of-type : children type과 동일한 첫번째 요소
+        children:last-of-type 
+        children:nth-of-type
+        children:nth-last-of-type
+
+        children:only-child  : 
+        children:only-of-type:
+        childern:empty       : children type중 아무내용이 없는 요소를 선택한다.
+                :root        : childern없이 그냥 :root로 적고, root 요소에 접근한다.
+
+
+        http://tcpschool.com/css/css_selector_structure
+
+
+        ★ first-child와 first-of-type의 차이점
+            https://webclub.tistory.com/254
+
+        아래와 같이 <div> 자식요소에 <div>와 <p>가 같이 있을때, 
+            즉 type이 다른 자식요소가 혼재할때    
+        <div> 
+            <div>text1</div> 
+            <p>text2</p> 
+            <p>text3</p> 
+        </div>
+
+        div p:first-child {color :red} 
+           // div의 하위요소의 첫번째는 p가 아니므로 css가 작동하지 않고
+        div p:first-of-child {coloer:red}
+           // div의 하위요소들중 p type의 요소의 첫번째 요소의 색상을 red로 바꾼다.    
+                 
+    -->
+
+    <style>
+
+        .d1 p:first-of-type{
+            color:red}
+        
+        .d1 p:first-child{
+            color:blue}   /* blue는 선택되지 않는다. */
+
+        .d2 .c1:first-of-type{
+            color:red;
+        }
+        
+        .d2 .c1:nth-child(1){
+            color:blue;
+        }
+        /* d2의 자식요소중 p type에만 class를 적용하고 그 class중 첫번째를 불러내고자해도
+           마찬가지로 blue는 선택되지 않는다. 
+           이를 통해 구조의사 클래스 nth-child는 
+           부모요소인 d2의 자식들 전체에 대해서 반응함을 알수있다*/
+
+        /* children type중 비어있는 요소만 선택한다.*/   
+        p:empty {
+            background-color: rgb(218, 218, 156);
+            width: 300px;
+			height: 20px;
+        }   
+
+    </style>
+
+</head>
+
+<body>
+        <div class='d1'>            
+            <div> text div</div>
+            <p>text p1</p>
+            <p></p>
+            <p>text p2</p>
+        </div>
+        <hr>
+        <div class='d2'>
+            <div > text div</div>
+            <p class='c1'>text p1</p>
+            <p class='c1'>text p2</p>
+            <p></p>
+        </div>
+</body>
+</html>

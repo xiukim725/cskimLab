@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>z-index</title>
+
+    <!-- Z-index 
+    요소의 쌓임 순서(stack order)를 정의할 수 있다.
+    정수값을 지정,(+ - 모두 가능 , 위로 덮힐수록 큰 양수를 적용)
+    쌓임 맥락(stacking context)에서의 level을 정의
+    위치 지정 요소에 대해서만 적용할수 있음.
+    즉 쌓임 순서를 변경하고자 하는 요소가 
+    위치지정요소 position = relative or absolute가 정의되어 있지 않으면
+    z-index는 작동하지 않음.
+
+https://www.youtube.com/watch?v=T2ZvfoYDeKI&list=PLFeNz2ojQZjuRTQGNUf6ZTz8-YRLgFFvZ&index=20
+-->
+
+<style>
+/*  */
+    *{font-size: 40px;}
+
+    div{width : 100px; height:100px;
+        position: relative;}
+
+    div:nth-child(1){background-color:yellow;}
+    div:nth-child(2){background-color:tomato;
+                     bottom: 50px;}
+    div:nth-child(3){background-color:teal;
+                     bottom: 100px;}
+    div:nth-child(4){background-color:sienna;
+                     bottom: 150px;}
+
+    .first   {z-index:1 ;}
+    .second  {z-index:2 ;}
+    .third   {z-index:3 ;}
+    .fourth  {z-index:4 ;}
+    
+</style>
+
+</head>
+<body>
+    <div class="first"> 1 </div>
+    <div class="second"> 2 </div>
+    <div class="third" >3 </div>
+    <div class="fourth"> 4 </div>
+</body>
+</html>

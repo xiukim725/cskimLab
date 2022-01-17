@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>before/after와 right/left와의 관계</title>
+    
+    <!-- 
+        block단위의 요소를 display:relative로 선언하고 
+        ::before/::after 유사클래스를 선언한  display:absolute 조건에서 
+        
+        left/right/top/bottom 속성을 지정하지않으면, 
+        요소의 범위내에서 
+        ::before는 contnets의 시작지점에서 (기존CONTENTS를 밀어내지못하고 겹친다)
+        ::after는 contents가 끝나는 다음에서 rendering되지만,
+        
+        left/right 속성을 지정하면
+        ::before와 after와 관계없이
+
+        left:0는 호출요소의 시작점에서 시작하여 rendering되고,
+        right:0는 추가 요소의 끝선이 호출요소의 끝선에 맞추어 rendering된다.
+
+
+
+     -->
+    <style>
+
+        div {
+            display: inline-block;
+            position: relative;
+        }
+        
+        /* inline-block에서 top/left가 없는 before와 after는 요소의 크기안에서 rendering된다. */
+        #ib p{
+            display: inline-block;
+            position: relative;
+            width : 400px;
+            height: 20px;
+            background-color: wheat;
+        }
+
+        #ib p:first-child::before{
+            position: absolute;
+            background-color: rgb(49, 0, 128);
+            opacity: 40%;
+            content: '';
+            width: 20px;
+            height: 25px;
+        }
+
+        #ib p:first-child::after{
+            position: absolute;
+            background-color: teal;
+            opacity: 40%;
+            content: '';
+            width: 20px;
+            height: 25px;
+        }
+
+        /* inline-block에서 top/left가 있는 before와 after는 해당요소의 상위요소를 기준으로 rendering된다. */
+        #ib p:last-child::before{
+            position: absolute;
+            background-color: rgb(49, 0, 128);
+            opacity: 40%;
+            content: '';
+            width: 100px;
+            height: 25px;
+            top:0;
+            left:0;
+
+        }
+
+        #ib p:last-child::after{
+            position: absolute;
+            background-color: teal;
+            opacity: 40%;
+            content: '';
+            width: 100px;
+            height: 25px;
+            top:0;
+            right:0;
+        }
+        /* block에서 before와 after는 요소의 크기안에서 rendering된다. */
+        #bl p{
+            display: block;
+            position: relative;
+            width : 400px;
+            height: 20px;
+            background-color: wheat;
+        }
+
+        #bl p:first-child::before{
+            position: absolute;
+            background-color: rgb(49, 0, 128);
+            opacity: 40%;
+            content: '';
+            width: 20px;
+            height: 25px;
+            right:0;
+
+        }
+
+        #bl p:first-child::after{
+            position: absolute;
+            background-color: teal;
+            opacity: 40%;
+            content: '';
+            width: 20px;
+            height: 25px;
+            left:0;
+            top:0;
+        }
+        
+        #bl p:last-child::before{
+            position: absolute;
+            background-color: rgb(49, 0, 128);
+            opacity: 40%;
+            content: '';
+            width: 20px;
+            height: 25px;
+            top:0;
+            left:0;
+        }
+
+        #bl p:last-child::after{
+            position: absolute;
+            background-color: teal;
+            opacity: 40%;
+            content: '';
+            width: 20px;
+            height: 25px;
+            top:0;
+            right:0;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div id='ib'> 
+        <p>in-line block none top before/after</p>
+        <p>in-line block top before/after</p>
+        
+    </div>
+    <br>
+    <div id='bl'>
+        <p>block none top</p>
+        <p>block top</p>
+        
+    </div>
+    
+</body>
+</html>

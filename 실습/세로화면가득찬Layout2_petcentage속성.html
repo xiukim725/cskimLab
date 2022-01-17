@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>full height screen using % </title>
+
+    <!-- %속성을 사용하여 세로 full화면을 채울때 주의사항은
+         반드시 html 과 body 요소의 height를 100%로 setting해야하는 일이다. 
+         그렇지 않으면 body의 default가 적용되어 줄이 없어져 버린다.
+
+         html,body { 
+            height : 100% ;
+        }
+        
+        다음 필요한 높이만큼을 %로 부여하고 
+        다음은 margin.top으로 - 한값을 calc () 함수를 이용해 + 해주면 된다.
+        이때 + 좌우에 space를 줘야한다.
+
+        calc ( n% + mpx)  
+
+        https://stackoverflow.com/questions/90178/make-a-div-fill-the-height-of-the-remaining-screen-space/44607939#44607939
+    -->
+
+
+    <style>
+
+        html,body { 
+            height : 100% ;
+        }
+
+        * {
+            margin : 0 ;
+            box-sizing :border-box;
+            
+        }
+
+            [class]{
+                border : 10px solid black; 
+            }
+           .header { height: 10% ; 
+                     /* top: 0;  */
+                     background-color: green}
+            .body {
+                margin-top : -10px;
+                height: calc( 80% + 10px); 
+                background-color: gray;
+               }
+            .footer { height: calc(10% + 10px);
+                      margin-top: -10px; 
+                      bottom: 0; }
+    </style>    
+
+
+</head>
+<body>
+            <div class="header">
+                <h2>My header</h2>
+            </div> 
+            <div class="body">
+                <p>The body</p>
+            </div> 
+            <div class="footer">
+                My footer
+            </div>
+</body>
+</html>

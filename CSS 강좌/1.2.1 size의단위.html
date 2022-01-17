@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>size의 단위</title>
+
+    <!-- px, % , em , rem , vw의 크기
+    
+    px : 절대적크기 ,
+    em : 해당 객체의 font-size의 상대적크기 , font-size가 없으면 상위객체의 font-size를 상속
+         Relative to the font-size of the element (2em means 2 times the size of the current font)
+    rem: 최상위객체(html)의 font-size에 대한 상대적크기
+         Relative to font-size of the root element  
+    %  : 상위객체에 대한 비율 
+         해당객체의 높이는 상위객체의 높이에 대한 비율이며
+         그 이외 즉 넓이 , padding, margin ... 은 모두 상위객체의 넓이에 의존한다.
+         Relative to the parent element
+    vw : viewport 폭의 1%에 대한 상대적 크기
+         Relative to 1% of the width of the viewport
+    vh : viewport 높이의 1%에 대한 상대적 크기
+         Relative to 1% of the height of the viewport
+
+    hn : h1,h2~h6는 절대적크기가 아닌, 상위객체의 font-size에 대한 상대적 크기임
+        
+        CSS 기본값
+            h1 {
+            display: block;
+            font-size: 2em;
+            margin-top: 0.67em;
+            margin-bottom: 0.67em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+            }
+
+            h2 {
+
+            display: block;
+            font-size: 1.5em;
+            margin-top: 0.83em;
+            margin-bottom: 0.83em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+            }
+
+            h3 {
+
+            display: block;
+            font-size: 1.17em;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+            }
+
+            h4 {
+
+            display: block;
+            font-size: 1em;
+            margin-top: 1.33em;
+            margin-bottom: 1.33em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+            }
+
+            h5 {
+
+            display: block;
+            font-size: .83em;
+            margin-top: 1.67em;
+            margin-bottom: 1.67em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+            }
+
+            h6 {
+
+            display: block;
+            font-size: .67em;
+            margin-top: 2.33em;
+            margin-bottom: 2.33em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+            }
+
+
+    https://www.w3schools.com/cssref/css_units.asp
+
+    -->
+    
+    <style>
+        html{
+            font-size : 10px;
+        }
+        .s1{
+            width : 200px; height: 400px;
+            border : 1px solid red;
+            background-color: hotpink;
+            font-size: 16px;
+        }
+        .s2{
+            width : 500px; height: 500px;
+            border : 1px solid red;
+            background-color:skyblue;
+            font-size: 40px;
+        }
+
+        .s1 .box{
+            width :50%;       /* s1의 width의 50%*/
+            height: 50%;      /* s1의 height의 50%*/
+            margin-left: 10%; /* s1의 width의 10%*/
+            margin-top : 10%; /* s1의 width의 10%*/
+            padding-left: 20%;/* s1의 width의 10%*/
+            padding-top : 20%;/* s1의 width의 10%*/
+
+            background-color: skyblue;
+            border : 2px solid white;
+        }
+        .s2 .box{
+            width : 7em ;height: 10rem;
+            margin-left: 10vw; /* viewport 넓이의 10%*/
+            margin-top : 20vh; /* viewprot 높이의 20%*/
+            padding-left: 20%;/* s2의 width의 10%*/
+            padding-top : 20%;/* s2의 width의 10%*/
+    
+            background-color: rgb(139, 173, 116);
+            border : 2px solid white;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+    <div class = 'section s1'>
+        
+        <div class='box'>크기연습</div>
+        <h1> section1</h1>
+    </div>
+
+    <br>
+    <div class = 'section s2'>
+        <div class='box'></div>
+        <h1>section2</h1>
+    </div>
+
+
+</body>
+</html>

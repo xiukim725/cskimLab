@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>absolute:삼촌요소는 상위요소아니다.</title>
+
+    <!-- absolute는 상위요소가 static인 경우는 화면의 (0,0)가 기준점이 되고,
+        그렇지 않은경우 , 즉 하나라도 조상요소가 static이 아닌 relative, absolute,fixed이면 
+        그 요소의 (0,0) 점이 시작 기준점이 된다고 알고 있다.
+        동시에 상위요소에 삼촌 요소는 해당되지 않는다.
+        css에서 삼촌요소는 상위요소가 아니다.
+    -->
+    <style>
+        * {margin: 0;
+           padding: 0; }
+        
+        .anc{
+             /* position: relative            ; */
+             border: slateblue 5px solid;
+             width : vw ;height: 700px;   
+             top : 100px ; left : 100px;
+        }
+           
+        .gf{
+            /* position: relative            ; */
+            border: slateblue 4px solid;
+            width : 500px ;height: 500px;
+            margin: 50px;
+        }
+
+        .fa{
+            border: slateblue 2px solid;
+            width : 50% ;height: 100px;
+            
+        }
+
+        .un {
+            border: slateblue 2px solid;
+            background-color: rgb(206, 197, 224);
+            width : 50% ;height: 200px;
+            color : white;
+            position: relative;
+            top : 0px ; left : 0px
+        }
+
+        .me {
+            border: slateblue 2px solid;
+            background-color: rgb(187, 47, 58);
+            width : 50px ;height: 50px;
+            position: absolute;
+            top : 10px ; left : 200px
+        }
+        .br {
+            border: slateblue 2px solid;
+            background-color: rgb(187, 47, 58);
+            width : 50px ;height: 50px;
+            position: fixed;
+            top : 40px ; left : 0px
+        }
+    </style>
+
+</head>
+<body>
+    
+</body>
+  <div class='anc'>ancestor  
+        <div class='gf'> grandfather
+            <div class ='fa'> fa 
+                <div class ='me'> me absolute</div>
+                <div class ='br'> br fixed</div>
+                <p> absolute과 fixed는 문서흐름에서 제외</p>
+            </div>
+            <div class ='un'>uncle</div>
+        </div>
+</div>      
+</html>

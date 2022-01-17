@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>margin에의한 layout</title>
+
+    <!-- box의 margin값을 조절하면
+        border의 겹침도 방지하고, box우측 배열도 가능하다.
+
+        그런데 화면의 가로로는 vw를 통해 꽉채울수있는데,
+        세로는 vh의 적용이 잘 않된다. 왜그럴까? 
+
+    -->
+
+<style>
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        
+        background : #ffeeee;
+    }
+    
+    .header{
+        height : 100px;
+        border : 10px gray solid;
+    }
+
+    
+    
+    .nav{
+        width : 300px;
+        height: 600px ;
+        border : 10px gray solid;
+        margin-top : -10px;
+        
+    }
+    
+    .contents{
+        width : 100% - 300px; 
+        height: 600px ;
+        border : 10px gray solid;
+        margin-top : -600px;
+        margin-left: 290px;
+        
+    }
+
+    .contents .con1 {
+        width : 30%; 
+        height: 100% ;
+        border : 5px gray solid;
+        margin-top : 0.5px;
+        margin-left: -5px;
+        
+    }
+    
+    .contents .con2 {
+        width : 30%; 
+        height: 100% ;
+        border : 5px gray solid;
+        margin-top : 1%;
+        margin-left: calc(-5px + 30%) ;
+        
+    }
+
+    .footer{
+
+        height: 100px;
+        border : 10px gray solid;
+        margin-top: -10px;
+
+    }
+</style>
+
+</head>
+<body>
+    <div class ='header'>header</div>
+    <div class ='section' >
+        <div class = 'nav'> nav </div>   
+        <div class = 'contents'>contents
+
+            <div class='con1'> </div>
+            <div class='con2'></div>
+            <div class='con3'></div>
+
+        </div>
+
+    </div>
+    <div class='footer'>footer</div>
+</body>
+
+
+</html>

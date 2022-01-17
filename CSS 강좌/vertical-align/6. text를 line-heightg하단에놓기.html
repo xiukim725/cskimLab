@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <!-- text를 lineheight 즉 linebar의 하단에 놓을방법은 없다.
+         대신 text의 하단을 lineheight의 하단에 맞출수는 있다.
+
+         1) 부모요소에 padding을 부여하면 된다.
+         2) 자식요소에 +em을 해도 되는데, +em은 baseline에서 +em만큼 내려가는 거라
+            자식요소가 내려감과 동시에 linebar의 폭이 커지는 상황이 발생한다.
+
+
+    --> 
+    <style>
+        div {
+            line-height: 3;
+            background-color: rgb(240, 233, 233);
+
+        }
+
+        #em {
+            vertical-align: -1em ;
+        }
+
+        .padding{
+            line-height: 1;
+            padding-top : 2em;
+        }
+        #padding {
+            vertical-align : text-bottom;
+        
+    </style>
+</head>
+<body>
+    <div class = 'padding'> parent text
+        <span id='padding'>padding사용</span>
+    </div>  
+    <br>  
+    <div > parent text    
+        <span id='em'>em을 사용</span>
+        
+    </div>
+</body>
+</html>

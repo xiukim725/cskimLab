@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vh,vw의 이용</title>
+
+    <style>
+
+      *{
+            margin:0;
+            box-sizing: border-box;
+        }
+
+        div {
+            padding : 5px;
+            border: 5px solid red
+        
+        }
+
+        .box1{
+            width :  vw;
+            height : 100px;
+        }
+
+        .box2{
+            margin-top: -5px; /* border 겹침을 방지 */
+            height : calc( 100vh - 100px + 5px) ; /* 위로 -5px 옮겼으므로 높이는 +5px */
+        }
+
+    </style>
+</head>
+<body>
+    <div class='box1'>1</div> <!-- 100vw -->
+    <div class='box2'>2</div> <!-- 100vh -->
+</body>
+</html>

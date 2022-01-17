@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inLine의 특성</title>
+    <!--
+        inline의 특성과 
+        line-height와
+        text의 vertical-align에 대해 알아본다
+
+        <span>은 inline요소, <h1>은 block요소
+         inline요소는 block요소 안에서 작동된다.   
+        
+        vertical-align : 
+          이속성은 block요소에는 없고, 
+          inline과 inline-block요소에만 있다.
+          이속성은 line-height내에서 top,bottom,middel의 위치에 text 혹은 요소를 배치가능하다.
+
+            /* 부모기준 정렬*/
+            vertical-align: baseline; 부모의 baseline에 맞추어 해당 element의 baseline을 정렬
+            vertical-align: sub;      해당 element의 baseline을 부모의 subscript baseline에 맞추어
+            vertical-align: super;    해당 element의 baseline을 부모의 superscript baseline에 맞추어
+            vertical-align: text-top; 해당 element의 top을 부모 element 폰트의 top에 맞추어
+            vertical-align: text-bottom; 해당 element의 bottom을 부모 element 폰트의 bottom에 맞추어
+            vertical-align: middle; 해당 element의 middle을 부모 baseline +x-height /2로
+            
+            /* <length> values */
+            vertical-align: 10em; 해당 element의 baseline을 부모의 baseline에서 주어진 길이만큼 위로
+            vertical-align: 4px;  해당 element의 baseline을 부모의 baseline에서 주어진 길이만큼 위로
+
+            /* <percentage> values */
+            vertical-align: 20%;  해당 element의 baseline을 부모의 baseline에서 line-height의 %만큼 위로
+
+
+            /*전체line 기준 정렬/
+            vertical-align: top; 해당 element의 top과 자손의 top을 전체line의 top으로 정렬   
+            vertical-align: bottom; 해당 element의 bottom과 자손의 bottom을 전체line의 bottom으로 정렬
+
+            
+
+            /* Global values */
+            vertical-align: inherit;
+            vertical-align: initial;
+            vertical-align: revert;
+            vertical-align: unset;
+        
+https://developer.mozilla.org/ko/docs/Web/CSS/vertical-align
+
+
+        line-height:
+            text나 inline요소의 줄높이
+            16px의 text의 line-height는 16이아니고, 21이다. 이는 16px의 글자와 5px의 공간이 있다는
+            말인데, 이 공간을 half leading space라 한다.
+            이 공간을 포함한 line-height 영역내에서 수직으로 높이를 이동하는것이 위의 vertical-align이다
+            그러므로 line-heingt을 크게하면 수직이동할 수 있는 공간의 폭도 넓어지게 된다.    
+            
+        -->
+        <style>
+            p {
+                font-size : 1.5em ;
+            line-height: 5em;
+            background-color: darkgoldenrod;
+            }
+            
+            #hobby{
+            font-size : 3em ;
+            background-color: rgb(184, 218, 157);
+            vertical-align: text-bottom;
+            }
+
+            #space {
+                font-size : 1em;
+                background-color: chocolate;
+                vertical-align: text-bottom;
+            }
+            #sub{
+                font-size : 0.3em ;
+                background-color: rgb(184, 218, 157);
+                vertical-align: text-bottom;
+            }
+        
+
+    </style>
+
+</head>
+<body>
+    <p> p객체의 크기는 16px 
+        <span id='hobby'>나의 취미</span>
+        <span id='space'>My WorkSpace</span> 
+        <span id='sub'> html</span>
+    </p>
+</body>
+</html>

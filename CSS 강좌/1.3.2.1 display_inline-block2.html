@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inline-block2</title>
+
+    <!-- 
+    상위객체의 width는 vw값이다.
+    객체의 width를 상위객체의 %값으로 구해보자    
+    -->
+
+    <style>
+
+        *{
+            margin : 0;
+            box-sizing: border-box;
+            border : 0px;
+        }
+
+
+        [class*='b']{
+            border :10px solid gray;
+            height: 300px;
+        }
+
+        .box1{
+            display: inline-block;
+            width : 30%;
+        }
+        
+        /* margin을 -1em하여 붙이기
+           width : calc (70% + 10px) */
+        .box2{
+            display: inline-block;
+            margin-left: -1em;
+            width : calc( 70% + 10px) ;
+        }
+        
+        
+        .round2{
+            margin-top: -1rem;  /*상위box와 하위box간에도 html의 특성상 공백이 발생한다.
+                                  이공백을 없애기위해 em을 쓰면 font-size가 0이므로 안된다
+                                  결국 rem을 써서 html의 font-size를 가져온다  */
+        }
+       
+        .round3{
+            margin-top: -1rem;  /*상위box와 하위box간에도 html의 특성상 공백이 발생한다.
+                                  이공백을 없애기위해 em을 쓰면 font-size가 0이므로 안된다
+                                  결국 rem을 써서 html의 font-size를 가져온다  */
+        }
+        .round2 div {
+            height: calc ( 100vh - 600px);
+        }
+        
+    </style>
+
+</head>
+<body>
+    <div class='round1'>
+        <class class='box1'></class>    
+        <div class='box2'></div>
+    </div>
+    <div class='round2'>
+        <div class='box1'></div>
+        <div class='box2'></div>
+    </div>
+    <div class='round3'>
+        <div class='box1'></div>
+        <div class='box2'></div>
+    </div>
+        
+
+</body>
+</html>

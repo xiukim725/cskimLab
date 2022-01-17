@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clip</title>
+
+    <!-- clip은 요소의 특정 부분만 렌더링 할 수있고 , 
+         posintion : absolute에서만 구현된다. 
+        
+        clip | auto | shape | initial | inherit
+
+        - auto : 요소의 모든부분 렌더링 , default 
+        - shape : 요소의 특정부분 
+             ( rect (<top>,<right>,<bottom>,<left>))
+                - top: 위를 기준으로 시작점 
+                - right : 왼쪽을 기준으로 끝나는 위치
+                - bottom : 위를 기준으로 끝나는 위치
+                - left : 왼쪽을 기준으로 시작점
+        - initial : 기본값 설정
+        - inherit : 부모 요소 상속  ,default : no        
+
+
+        https://www.codingfactory.net/10636
+        
+        -->
+
+        <style>
+            body {margin: 0px;}
+            .c{
+                position : absolute;
+                clip : rect( 100px, 1000px, 500px, 100px);
+            }
+
+        </style>
+</head>
+<body>
+    <img src="/실습/sucoding_design_house/images/room.jpg" class='c'>
+</body>
+</html>

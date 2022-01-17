@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>media 삽입</title>
+</head>
+<body>
+    
+    <p> audio 삽입</p>
+        <audio src="image/사랑...그게뭔데_양파.mp3" controls ></audio>
+
+
+    <p> video 삽입</p>
+        <video src="image/보우라인매듭.mp4" controls></video> </video>
+
+
+    <!-- 
+        https://youtu.be/N7N44QBJBAI?list=PLG7te9eYUi7tS_nx58Z1Zi9Iqt0JEQ1Is
+
+        media 태그의 속성
+
+            controls : 플레이어 화면에 컨트롤바를 표시
+            autoplay : media 자동실행
+            loop     : 무한반복
+            muted    : media 음소거
+            preload  : 페이지를 불러올때, media 파일을 어떻게 로딩할 것인지를 지정
+                       auto,metadata,none 이 있으며, default는 preload="auto"
+            width,height
+            poster="파일 이름" : video 태그의 속성
+                                재생전 화면에 표시될 image
+        
+        플레이어 표시없이 배경음악넣기
+
+         <audio src="image/사랑...그게뭔데_양파.mp3" autoplay loop ></audio>
+
+        video 자동 재생
+         <video src="image/보우라인매듭.mp4" autoplay muted loop></video> </video>
+           - 아쉽게도 chrome은 음소거를 해야지만 자동 재생가능함.
+
+     -->
+
+
+</body>
+</html>

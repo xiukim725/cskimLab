@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>line-height와 font-size와의 관계</title>
+
+    <!-- 
+
+        line-height는 줄높이를 정하는 속성
+        
+        line-height : normal | length | number | percentage | initial | inherit 
+        normal : 웹브라우저가 정한 기본값 , 보통 1.2
+        length : 길이로 줄높이를 표현
+        number : 해당요소 글자크기의 몇배인지    (해당요소의 글자크기에 number배값을 rendering)
+        percentage : 부모글자크기의 몇 %인지(해당요소는 부모요소의 글자크기의 %한 결과값을 상속하여 rendering)
+        initial : 기본값으로 설정
+        inherit : 부모요소의 속성값을 상속
+
+        숫자(number)와 숫자 이외의 값은 상속에서 차이가 납니다. 
+        부모 요소의 line-height 값이 숫자라면 
+        자식 요소의 줄 높이는 자식 요소의 글자 크기에 비례해서 높이가 조정됩니다. 
+
+        예를 들어 부모 요소의 line-height 값이 1.5, 
+        글자 크기가 30px, 자식 요소의 글자 크기가 20px라면
+        부모 요소의 줄 높이는 30의 1.5배인 45px
+        자식 요소의 줄 높이는 20의 1.5배인 30px
+        가 됩니다. 
+
+        만약 부모 요소의 line-height 값이 150%라면
+        부모 요소의 줄 높이는 30의 150%인 45px
+        자식 요소의 줄 높이는 부모 요소의 값을 상속 받아 45px가 됩니다. 
+        따라서 부모 요소와 자식 요소 간 글자 크기의 차이가 크다면 
+        숫자를 속성값으로 하는 것이 좋습니다.
+
+
+https://www.codingfactory.net/10639
+    -->
+
+    <style>
+
+        
+
+        .per .fb{
+            background-color: bisque;
+            line-height: 80%;
+        }
+        .per .fs{
+            background-color: rgb(196, 212, 255);
+            line-height: 200%;
+        }
+        .number .fb{
+            font-size: 0.8em;
+            background-color: bisque;
+            line-height: 0.8;
+        }
+        .number .fs{
+            background-color: rgb(196, 212, 255);
+            line-height: 2;
+        }
+
+
+        .sf{
+            font-size: 10px;
+            /* line-height: 3;     */
+        }
+        .bf{
+            font-size: 30px;
+            /* line-height: 30%; */
+        }
+
+    </style>
+</head>
+<body>
+    <div class ='per'> % 속성
+        <div class = 'fb'> font bigger than line-height
+            <span class ='sf'> small font </span> 
+            <span class='bf'> big font</span>
+            <span class ='sf'> small font </span>
+        </div>
+        <div class = 'fs'> font smaller than line-height
+            <span class ='sf'> small font </span> 
+            <span class='bf'> big font</span>
+            <span class ='sf'> small font </span>
+        </div>
+    </div>
+    <div class ='number'> number 속성
+        <div class = 'fb'> font bigger than line-height
+            <span class ='sf'> small font </span> 
+            <span class='bf'> big font</span>
+            <span class ='sf'> small font </span>
+        </div>
+        <div class = 'fs'> font smaller than line-height
+            <span class ='sf'> small font </span> 
+            <span class='bf'> big font</span>
+            <span class ='sf'> small font </span>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 태그</title>
+
+<!-- Table 태그
+    여러 종류의 data를 보기좋게 정리하여 보여주는 표
+    <caption> 테이블의 제목
+    <tr> 테이블에서 열을 구분
+    <th> 열의 제목, 모든 내용은 자동으로 굵은 글씨에 가운데 정열    
+    <td> 테이블의 열을 각각의 cell로 나누어줌 
+    
+    Table의 테두리는 HTML에서 만드는게 아니라, CSS에서 border로 설정하고,
+
+    Table의 테두리가 두줄씩 나오는 것은 table 태그와 tr테그 모두에 border가 적용됐기 때문
+    두줄을 없앨려면
+    <style>
+        table { border-collapse : collapse }  // 작동안함
+    </style>
+
+
+    테이블의 행합치기
+        rowspan ="2" 
+
+    테이블의 열합치기
+        colspan = "2"
+    
+    rowspan, colspan은 inline css문으로만 작동한다.
+
+    text-align 
+        텍스트의 수평방향 정렬
+        
+    vertical-align
+        텍스트의 수직방향 정렬
+            
+     
+        
+    -->
+    <style>
+    tr,td {
+        border : 1px solid black;
+      
+    }
+
+    table { 
+        width : 100%;
+        border-collapse: collapse;
+    }
+        
+
+    /* table .th{background-color: lightgray;} */
+   </style>
+
+</head>
+<body>
+    <table>
+        <tr class ="th">
+            <th>참치</th>
+            <th colspan="2">고래</th>
+        </tr>
+        <tr>
+            
+            <td rowspan ="2">상어</td>
+            <td>문어</td>
+            <td colspan="2">꽁치</td>
+            
+        </tr>
+        <tr>
+            <td colspan="2">오징어</td>
+            <td>고등어</td>
+        </tr>
+    </table>
+</body>
+</html>

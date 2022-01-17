@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자식선택자 > </title>
+
+   
+        <!-- 하위요소가 자식 , 손자, 증손자.. 등 여러 세대가 있을때, 
+             오직 자식요소만 선택하는 선택자가 자식선택자이고 > 로 표현한다.
+
+            
+         -->
+         <style>
+            
+            .gf > div {
+                border: blue 1px solid ;
+            }
+
+            div > div > div {
+                border :brown 1px solid;
+            }
+
+         </style>
+</head>
+<body>
+    <div class = 'gf'>gf
+        <div> fa
+            <div> me</div>
+        </div>
+        <div> uncle
+            <div>cousin</div>
+        </div>
+        
+    </div>
+</body>
+</html>

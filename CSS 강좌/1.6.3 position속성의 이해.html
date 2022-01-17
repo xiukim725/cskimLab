@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>top/bottom/left/right속성과 position</title>
+
+    <!-- top/bottom/left/right속성은 요소의 position에 따라 사용방법이 다르다.
+
+         아래는 bottom속성으로 대표하여 표현하고 나머지 속성도 동일하게 작동한다. 
+        
+        1) absolute 
+           : 요소의 아래쪽 가장자리를 
+             position값을 가진 가장 가까운 조상요소의 아래쪽 가장자리를 기준으로하여 
+             bottom값이 +이면 위로, -이면 아래로 이동한다. 
+        2) fixed
+           : 요소의 아래쪽 가장자리를
+             조상요소의 유무에 무관하게,
+             viewport의 아래쪽 가장자리를 기준으로하여 
+             bottom값이 +이면 위로, -이면 아래로 이동한다.
+        3) relative 
+           : 요소의 아래쪽 가장자리가 정상위치를 기준으로 
+              bottom값이 +이면 위로, -이면 아래로 이동한다.
+        4) sticky
+           : 요소가 viewport 내부에 있을때는 위치가 relative처럼,
+                            외부에 있을때는 위치가 absolute인것처첨 bottom속성이 작동한다.        
+        5) static
+           : bottom 속성은 무시된다. 
+           
+           
+        https://www.w3schools.com/cssref/pr_pos_bottom.asp   
+
+     -->
+
+     <style>
+        div.parent {
+          position: relative;
+          height: 200px;
+          border: 3px solid red;
+        }
+        
+        div.absolute {
+          position: absolute;
+          width: 50%;
+          bottom: 10px;
+          border: 3px solid #8AC007;
+        } 
+        
+        div.relative {
+          position: relative;
+          width: 50%;
+          bottom: -5px;
+          
+          border: 5px solid #8AC007;
+        } 
+        
+        div.fixed {
+          position: fixed;
+          width: 50%;
+          bottom: 20px;
+          border: 3px solid #8AC007;
+        } 
+        
+        div.sticky {
+          position: sticky;
+          width: 50%;
+          bottom: 10px;
+          border: 3px solid #8AC007;
+        } 
+        </style>
+
+
+</head>
+<body>
+    <h1>The bottom Property</h1>
+
+    <div class="parent">This div element has position: relative;
+        <div class="absolute"><strong>position: absolute and bottom 10px</strong>
+            <br>
+            This div's bottom edge is placed 10 pixels above the bottom edge of the containing element.
+        </div>
+    </div>
+    <br>
+
+    <div class="parent">This div element has position: relative;
+        <div class="relative"><strong>position: relative and bottom 5px</strong>
+            <br>This div's bottom edge is placed 5 pixels above its normal position.
+        </div>
+    </div>
+    <br>
+
+    <div class="fixed"><strong>position: fixed and bottom 10px</strong>
+        <br>This div's bottom edge is placed 10 pixels from the bottom of the viewport.</div>
+    <!-- fixed는 조상요소에 관계없이 bottom 이동의 기준선이 viewport의 bottom이된다.  -->
+        
+    <div class="parent">This div element has position: relative;
+        <div class="sticky"><strong>position: sticky and bottom 10px</strong>
+            <br>This div is sticky.
+        </div>
+    </div>
+
+</body>
+</html>

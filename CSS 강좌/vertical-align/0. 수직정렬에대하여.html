@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수직정렬</title>
+
+    <style>
+
+        /* 1.요소글자가 한줄일때, block,inline에 관계없이 
+             line-height을 요소블록의 크기와 같이 설정하면 비슷하게 center로 감 */
+        .b1{
+            width:500px;height:100px;
+            background-color: rgba(126, 230, 230, 0.4);
+            line-height: 100px; 
+            text-align: center;           
+        }
+
+        /* 2.요소글자가 2줄이상일때,
+             line-height을 쓰면 2번째줄이 box를 벗어나버리므로 않된다.
+             position:absolute 사용
+
+             
+             */
+        .b2{
+            width:500px;height:100px;
+            background-color: rgba(126, 230, 230, 0.4);
+            position: relative; 
+                   
+        }
+
+        .b2 p{
+            position: absolute;
+            top: calc(( 50% - 2em)/2);
+        }
+    </style>
+
+</head>
+
+<body>
+    
+</body>
+    <div class='b1'>
+        <div> 요소글자가 1줄일때</div>
+    </div>    
+    <br>
+    <div class='b2'>
+        <p> 요소글자가 2줄이상일때 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse, quasi.</p>
+    </div>    
+</html>

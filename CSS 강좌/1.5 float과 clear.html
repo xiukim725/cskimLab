@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<!-- float 속성
+    : 요소가 문서의 일반적인 흐름에서 제외되어,
+      자신을 포함하고 있는 컨테이너 즉 부모요소의 왼쪽이나 오른쪽에 배치됨.
+
+      float요소 이후에 표시되는 요소는 float이 차지하는 영역은 제외하고, 
+      남은 공간에서 문서의 흐름대로 rendering됨. 
+    
+      none : 기본값, 
+      left : 자신을 포함하고 있는 컨테이너 box의 왼쪽에 떠 있슴
+      right: 자신을 포함하고 있는 컨테이너 box의 오른쪽에 떠 있슴.
+
+      => 문서의 흐름에선 제외되지만, 필요한 만큼의 공간은 차지한다!!!
+
+    clear 속성
+    : float 요소 이후에 표시되는 요소가 float을 해제(clear)하여
+      float 요소 아래로 내려가게 할 수 있다.
+      
+      none : 기본값, 아래로 내려가지 않음
+      left : float이 left인 요소의 아래로 내려감
+      right: float이 right인 요소 bottom edge 아래의 왼쪽부터 시작함
+      both : float이 left 및 right인 요소중 bottom edge가 긴 아래의 왼쪽부터 시작함
+      
+      => clear:both를 사용하면 한방에 해결 !!!
+
+https://www.youtube.com/watch?v=JP_I3hz55hk&list=PLFeNz2ojQZjuRTQGNUf6ZTz8-YRLgFFvZ&index=11
+-->
+
+
+    <style>
+        #a{ width : 200px; height:100px;
+            background-color: orange;
+            float: right;}
+        #b{ width:200px;height: 50px;
+            background-color: royalblue;
+            float: left;}
+        p{
+            clear:left;
+        }
+
+    </style>
+
+
+
+</head>
+<body> 타이틀의 위치 
+    <div id="a"></div>
+    <div id="b"></div>
+    <p>안녕하세요. 세번째 태그네요 </p>
+    <p>안녕하세요. 네번째 태그네요 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur, hic.</p>
+    <p>안녕하세요. 다섯번째 태그네요 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur, hic.</p>
+    <p>안녕하세요. 여섯번째 태그네요 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur, hic.</p>
+    <p>안녕하세요. 일곱번째 태그네요</p>
+    <p>안녕하세요. 여덟번째 태그네요</p>
+ 
+</body>
+</html>

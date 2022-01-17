@@ -1,0 +1,1 @@
+console.log("TEST 외부SCRIPT 안나오면 console창의 메시지를 click");

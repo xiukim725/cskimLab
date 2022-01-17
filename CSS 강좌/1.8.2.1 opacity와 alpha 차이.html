@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>opacity 와 rgba의 차이</title>
+
+    <!-- 
+        opacity를 적용하면 자식요소도 같이 적용된다. 
+        이때 자식요소의 가장 진한 1의 정도가 부모요소의 opacity 정도가 되므로 더이상 진하게 표현할 수 없다.
+        
+        그러나
+        rgba의 alpha값는 요소에만 적용되고 자식에게는 적용되지 않는다.
+        
+        따라서 부모의 배경 색상에만 opacity를 주고자 할때는 
+        굳이 1.8.2와 같은 복잡한 :before를 사용하지 않고, 그냥 rgba만 사용해도 된다.
+     -->
+    <style>
+        .fa {
+            width:400px ;height:200px;
+        
+        }
+
+        .op {
+            opacity: 0.2;
+            background-color: blue;
+        }
+
+        .al {
+            background-color: rgba(0,0,255,0.2);
+        }
+
+        .ch{
+            width :200px;height: 100px;
+            background-color : rgba(255,0,255,1);
+        }
+
+    </style>
+</head>
+<body>
+    <div class=' fa op'>
+        <div class='ch'>opacity</div>
+    </div>
+    <hr>
+    <div class='fa al'>
+        <div class='ch'> rgba alpha</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4열2행box배열</title>
+
+<style>
+[class *= 'box']{
+    height:200px;
+}
+
+.inner{
+    display: inline-block;
+    border: 1px gray solid;
+    width : 100px; height :200px;
+    background: lime;
+
+}
+
+.box2 .inner{
+    background-color: magenta;
+}
+</style>
+
+</head>
+<body>
+    <!-- 4열로 배열할려면 display :inline-block 
+         2행은           diplay : block 
+    즉 2개의 div를 block으로 만들고 
+    자식요소로 4개의 inline-block요소를 만들면 됨    -->
+</body>
+
+<div class='box1'>
+    <div class='inner'>1</div>
+    <div class='inner'>2</div>
+    <div class='inner'>3</div>
+    <div class='inner'>4</div>
+</div>
+<br>
+<div class='box2'>
+    <div class='inner'>1</div>
+    <div class='inner'>2</div>
+    <div class='inner'>3</div>
+    <div class='inner'>4</div>
+
+</div>
+</html>

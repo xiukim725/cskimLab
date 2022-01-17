@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+<!-- 박스 각 영역의 크기 
+    https://www.youtube.com/watch?v=bbeB3Nc5hwY
+
+    콘텐츠 영역 : width, height
+                 block level은 width,heigt 사용이 당연히 가능하나, inline은 불가하다.
+                 inline에서 사용하고자하면 디스플레이 {display: inline-block} 속성을 이용한다.   
+    안쪽여백    : padding
+    테두리      : border-width
+    바깥쪽여백  : margin
+
+    box요소    : margin,padding,border,contents의 width,height를 모두 가짐
+                종류 : dt,dd,ul,li,div,p,h1~h6
+    
+    inline요소 : margin,padding,border는 가지지만, 
+                width와 height는 가지지 않음.
+                인라인 요소 다음에는 줄바꿈 없고, 우측으로 바로 이어짐                
+                종류 : a , img, span , strong , input , textarea ,select
+                
+    display : inline-block 을 선언하면
+                inline요소의 성질에다가 width와 height의 성질을 추가할 수 있슴.
+
+    단축속성 :       
+              margin: 10px;                 // 상하좌우
+              margin: 10px 20px;            // 상하,좌우
+              margin: 10px 20px 30px;       // 상,좌우,하
+              margin: 10px 20px 30px 40px;  // 상,우,하,좌 시계방향
+              
+
+-->
+
+<style>
+
+    div{
+        border:3px solid red;
+        padding: 50px;
+        margin : 10px;
+        width : 120px; /*contents의 넓이*/
+        height : 20px;
+        line-height: 20px;
+    }
+
+    /* span은 inline요소이므로 width와 height는 무의미함.*/
+    .align{
+    
+        width : 100px ;height : 50px;  
+          background-color: rgb(243, 226, 226);  }
+
+    /* align이 inline요소이므로 check가 우측에 붙어서 렌더링됨
+       check를 display : inline-block;으로 설정함으로서
+       width와 height를 가짐 
+    */    
+
+    .check{ width : 200px ;height : 100px;
+          margin: 10px 30px;  
+          display: inline-block;
+          background-color: red;
+          padding : 10px;
+    }
+</style>
+
+</head>
+<body>
+    <div> 요소의 콘텐츠</div>
+    <span class='align'> contents align  </span>
+    <span class='check'> check  </span>
+    
+</body>
+</html>

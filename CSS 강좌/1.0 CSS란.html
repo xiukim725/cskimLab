@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{ color: rgb(64, 64, 109);
+            font-size: 30px;
+            font-style: italic;}
+
+        .container{
+            color : blue;
+        }    
+
+    </style>
+
+    <link href="style.css" rel="stylesheet">
+        
+
+</head>
+<body>
+    
+<!-- CSS란 
+    CSS는 Cascading Style sheets
+    계단식으로 스타일을 정의하는 문서
+    CSS는 HTML문서에 스타일을 입히므로 HTML이 없으면 무의미한 단순 TEXT일뿐임.
+    HTML문서는 계단식으로 태그가 태그를 포함하는 구조를 가지고 있슴.
+
+    선택자 { 속성 : 속성값 ; }
+    p      { color : red ;} // p태그의 색상은 red
+    
+    css의 주석처리 {  /* 주석처리  */  }
+
+    - 인라인스타일 : 태그에 직접 스타일 속성 추가, 
+                    { } 대신에 style= "    " 를 사용 
+                    사용 추천하지 않음
+                    < p style = "color : blue;">
+    
+    - 스타일태그 : HTML 문서의 HEAD 영역에 <style></style> 태그를 추가하여 css코드를 작성
+
+    - 문서간의 연결 : css문서를 별도로 만듬 
+                     <link href="./style.css" rel ='styleshet">
+                     rel : 현재문서(html)와 외부소스와의 연관관계 기술 , rel= stylesheet이므로 외부소스는 CSS임을 의미
+                           rel 은 relation의 약자
+                     <link> 태그는 HEAD 영역에 작성되어야만 한다  
+
+
+    p태그내에 문장을 쉽게 삽입하는 emnet
+    lorem뒤에 숫자를 넣고 tab키를 누르면 숫자만큼의 단어를 가진 문장이 출력
+
+    CSS / HTML /JS 를 설명하는 최고의 CITE
+    https://www.w3schools.com/css/default.asp
+
+-->
+    <h1>  CSS의 STYLE 학습</h1>
+    <p style="color :rgb(255, 0, 13) "> 
+        우리는 민족 중흥의 역사적 사명을 띄고 이땅에 태어났다.</p>
+
+
+    <div class="container">
+        <h2> 01:30:45</h2>
+        <button id="bt_stop"> STOP</button>
+        <button id="bt_go"> GO</button>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!--https://www.youtube.com/channel/UCzA62wwyiLnVnqFP4VEUOZg
+    수코딩                                                    -->
+
+
+<!--HTML 주석처리는 이렇게 한다.
+    VSCODE는 shift+alt+a or ctrl+? 로 주석처리 가능하다.-->
+
+<!--  -->
+<!-- 영역 주석도 가능하다-->
+<!-- Tag 
+      1. contents 있는 Tag
+         <P>  CONTENTS </P> 
+         <DIV>          </DIV> 
+         
+      2. contents 없는 Tag
+         <br>  // 빈tag
+         <   
+   -->
+   
+
+<!-- HTML 기본 구조 
+https://www.youtube.com/watch?v=X_n1vwx1AUs&list=PLFeNz2ojQZjtQc7mt8E9fNzIh9or34A61&index=5-->
+
+<!-- vsC에서는 !+탭키로 기본구조가 생성가능 이를 emnet이라 함.
+
+   p태그내에 문장을 쉽게 삽입하는 emnet
+    lorem뒤에 숫자를 넣고 tab키를 누르면 숫자만큼의 단어를 가진 문장이 출력
+-->
+
+
+<!DOCTYPE html>   <!--사용하는 html의 version이 html5라는 의미임.-->
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title> HTML 기초</title>
+</head>
+
+<body>
+  BODY 안에 문자를 그냥 적어도 Display는 되지만,
+  <br>
+  다양한 style을 적용할 수 는 없지요.
+
+<!-- h 태그 : 글자의 크기를 6단계로 조정 
+      h1 tag는 하나의 html 문서에 한번만 사용합니다. 
+      h1 tag부터 h6로 순차적으로 사용하도록 합니다.  -->          
+
+            <h1 class ="title"> h1 : H태그는 크기를 변경 </h1>
+            <h2> h2</h2>
+            <h3> h3</h3>
+            <h4> h4</h4>
+            <h5> h5aaa</h5>
+            <h6> h6aaa</h6>
+
+        <!-- h1~h6 tag :  https://www.w3schools.com/tags/tag_hn.asp-->    
+
+<!-- p tag는 웹브라우저의 가로 한줄을 사용하는 Tag
+   space bar는 인식않음. 띄어쓰기는 &nbsp;로 
+   엔터키도 인식않음. 줄바꿈은 <br> tag로 -->
+   
+   <p>p tag는 웹브라우저의 가로 한줄을 사용하는 Tag
+      space bar는 인식않음. 띄어쓰기는 &nbsp;로 
+      엔터키도 인식않음. 줄바꿈은 <br> tag로 -->
+      
+   </p>
+   
+   
+   <!-- a 태그 <a> Anchor: 웹페이지에서 링크 연결 
+      내부link <a href= "#???">     </a>  // 목차등에 사용
+      외부link <a href="https:??? "></a>  
+   -->
+   <!--내부link-->
+   <a href="#one">one로 이동</a>
+   <a href="#two">two로 이동</a>
+   <a href="#three">three로 이동</a>
+   
+   <!--외부link-->
+   <br>
+   <a href="https:/www.google.com" target="_blank"> 구글로 이동</a>
+   
+   <!-- 전역속성 
+        id : 요소에 고유한 이름을 부여하는 식별자 속성 
+        class : 요소를 group으로 묶어내는 식별자 속성
+        style : 요소에 적용할 CSS Style을 선언하는 속성
+        title : 요소의 추가정보를 제공하는 텍스트 속성, 
+                마우스를 이미지위에 올리면 사용자에게 박스형 툴팁 제공
+        https://www.youtube.com/watch?v=gC1eEk2O02w&list=PLFeNz2ojQZjtQc7mt8E9fNzIh9or34A61&index=9
+   -->
+
+
+   <!-- img 태그 : image 삽입 태그 
+         내부 resource
+         외부 resource
+   -->
+   <br>
+   
+   <p>내부 resource</p>
+   <img src="./image/우주선.png" alt="우주선" width ="50"  
+            title ="우주선ㅁ"> 
+            <!-- 50px 라 적으면 않됨 ,"50%도 가능함"
+                  툴팁     -->
+
+             
+             <!-- .      현재문서의 folder 
+                  \      하위 폴더
+                  ..\    현재문서의 상위폴더 
+                  ..\..\ 현재문서 상위폴더의 상위 폴더 -->
+             <br>
+   <p> 외부 resource </p>
+   <img src= "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" 
+                       height="5%">
+                       
+   <br>
+ <p>이미지 Link : click하면 cite에 link 가능하다.</p>
+ <!--  이미지를 click하면 특정 cite로 들어가는 link방식
+   <a> 태그의 내부에 <image> 태그를 넣으면 됨.   -->
+
+            <a href="https:/www.google.com" target="_blank">
+                                           <!-- target="_blank" : 새로운 tab에 link 열기 -->
+      
+                  <img src= "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" 
+                  height="5%">
+
+            </a>
+
+            <br>
+
+<!-- image Map 
+   한개의 image에 복수의 link를 분할된 영역에 할당하는 방식 
+   https://www.youtube.com/watch?v=aZ2pBmnm9B0&list=PL-eeIUD86IjQuP9iDbQn_1eMHlPB_qdgY&index=21-->
+   
+   <h3> imgage map 사용 </h3>
+   <p>한개의 image에 복수의 link를 분할된 영역에 할당하는 방식 
+   </p>
+   <img src = "./image/googlelogo.png" width = "50%"
+            alt = "구글이미지" usemap ="#google">
+
+   <map name = google>
+      <area shape="rect" coords="0,0,272,92" href="https://google.co" target="_blank" alt="구글홈이미지map" >
+   </map>
+      <!-- imagemap 자동생성 homepage : https://www.image-map.net/-->
+
+
+
+
+<!-- 컨테이너 태그 
+     콘텐츠나 레이아웃에 영향을 주지않고, 요소를 묶어 관리를 편하게 하기위한 태그
+     콘텐츠를 구분하거나, 공통적 스타일을 적용하기 위해 사용
+     <div>   </div>  : 블록레벨
+     <span>  </span> : inline 레벨
+
+-->  <div id="container">
+         <h3> 컨테이너 태그를 <span>공부</span></h3>
+         <h4> <span>운동</span>도 열심히 해야지 </h4>
+      </div>
+      <hr>
+      
+
+
+
+<!--JavaScript code 구현 
+   내부script <script> ######   </script>
+   외부script <script> src = ./##.js </script>   -->     
+   
+   <!--내부script-->
+   <script>  console.log("Hello World 왜 이제 나와 !!!"); </script> 
+   <!--외부script-->
+   <script src= "test.js"> </script>
+
+
+
+<!-- strong 태그 : 중요한 Text를 강조할 때 굵게 
+     em 태그 : Text의 강조 , 기울여
+     b 태그 : 시각적으로만 굵게  
+     i 태그 : 시각적으로만 기울여             -->
+
+            <p><strong> "위험한 놀이기구 입니다 <br>
+                     <em> 노약자나 특히 <em>임산부</em>는 탑승을 금합니다.</em>"</strong>  </p>
+<!--hr 태그 : head line 
+    <hr> or <hr/>     -->
+            <hr>   
+            <p><b> "위험한 놀이기구 입니다 <br>
+               <i> 노약자나 특히 <i>임산부</i>는 탑승을 금합니다.</i>"</b>  </p>
+            <hr/>   
+               
+<!-- 목록 작성용 태그 
+<UL> 태그 : unordered list
+   <li>     </li>
+   <li>     </li>
+</ul>   
+
+<ol> 태그 : ordered list (숫자로 구분)
+   <ol type= "A"> 태그 : 영문자로 구분
+
+
+<dl> 태그 : definition list
+<dt>  : definition title
+<dd>  : definition data   
+   
+-->            <h3> 선행 학습 </h3>
+            <ul>
+               <li> Python </li>
+               <li> javaScript </li>               
+            </ul>    
+
+            <ol type="1">
+               <li> 국어 </li>    
+               <li> 수학 </li>
+            </ol>
+
+            <h1>수코딩 레스토랑</h1>
+            <dl>
+               <dt> 라자냐</dt>
+               <dd>라자냐는 이탈리아 북부에서 유래한 파스타의 일종</dd>  
+               <dt> 필리프</dt>
+               <dd> 필리프는 쌀이나 으깬 밀과 같은 곡식으로 만든 음식 </dd>
+            </dl>
+
+            
+         </body>
+         
+         <!-- 아래는 css문임--> 
+         <p id="one" style="margin-top: 1500px;">one</p>
+         <p id="two" style="margin-top: 1500px;">two</p>
+         <p id="three" style="margin-top: 1500px;">three</p>
+         <p style="margin-top: 2000px;"></p>
+
+
+</html>
+       
+       

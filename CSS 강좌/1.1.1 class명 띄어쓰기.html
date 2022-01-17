@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selector</title>
+
+<!-- 공백이 있는 class명 선택
+
+    <div claas ="optional a1" > </div> 
+    // 이렇게 이름안에 띄어쓰기가 되어있다면
+       한개의 class명 'optional a1'이 아니고
+       optional  a1 2개의 class명을 지정한 것이다.
+       
+    그럼 css에서 어떻게 선택하는가?
+    
+    .optional
+    .a1
+    .optional.a1
+
+    위의 3가지는 같은 class를 선택하지만
+    .optiaonal .a1 // 처럼 공백이 있으면 이는 .optional 자식클래스 .a1을 선택하는것임.
+                                                     
+
+-->
+<style>
+    .optiaonal {
+        width: 100px;height: 100px;
+        background-color: rebeccapurple;
+        border : 1px red solid; 
+    }
+    .a2 {
+        background-color: royalblue;
+    }
+
+    .option div{
+        width: 100px;height: 100px;
+        background-color: rebeccapurple;
+        border : 1px red solid; 
+    }
+    .option .b1 {
+        background-color: royalblue;
+    }
+</style>
+
+</head>
+
+<body>
+    <div >
+        <div class="optiaonal a1"></div>
+        <div class="optiaonal a2"></div>
+        <div class="optiaonal a3">></div>
+    </div>
+    <br><br>
+
+    <div class='option'>
+        <div class= 'b1'></div>
+        <div> </div>
+        <div> </div>
+    </div>
+    
+</body>
+</html>

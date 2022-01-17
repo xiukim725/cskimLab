@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>의사클래스</title>
+
+<!-- 의사클래스 (가상클래스)
+    선택자에 추가하는 키워드,
+    요소가 어떤 특정 상태가 되었을때 요소의 속성을 선택
+
+
+    !!!주의!!!
+    선택자와 의사클래스 사이에 띄어쓰기가 되면 인식 못한다.
+
+    즉 선택자 : 의사클래스 (X)
+       선택자 :의사클래스(X)
+       선택자: 의사클래스(X)
+       선택자:의사클래스(O)  
+
+
+    선택자:의사클래스 { 속성명 : 값;}
+    h1:hover { color : red ;} // h1 요소에 마우스가 올라가면 (hover) 글자를 빨간색으로 
+
+    hover   : 마우스 포인터가 요소에 올라옴
+    active  : 사용자가 요소를 활성화 ( ex. 마우스 누리기등)
+    focus   : 요소가 포커스를 받고있다
+    disabled: 비활성 상태의 요소
+    nth-child() : 형제사이에서의 순서에 따라 요소를 선택
+
+    https://developer.mozilla.org/ko/docs...
+
+-->
+
+    <style>
+        [type ="button"]{
+            width : 100px ; height: 30px;
+            background-color: tomato; color:white;
+            border: none; border-radius: 8px;
+        }
+
+        [type ="button"]:hover {  /*마우스가 버튼에 올라가면 버튼색이 회색 */
+            background-color: gray;
+        }
+        
+        [type ="button"]:active {  /*마우스가 버튼을 누른 상태에  버튼색이 검은색 */
+            background-color:black;
+        }
+
+        input:focus{               /*마우스가 텍스트박스안에서 click되면 */
+            background-color: red;
+            color:white;  
+        }
+/*
+        input :disabled {
+            height : 100px;
+            background-color: black;
+        } 
+        */
+
+        .block{
+            display : flex;
+            justify-content: space-between;
+        }
+
+        .box{
+            width : 50px;height:50px;
+            background-color: cadetblue; color:white;
+        }
+        
+        .block>.box:nth-child(n-1){
+            background-color: red; 
+            color:white;
+        }
+    </style>
+
+</head>
+<body>
+    <input type ="button" value="버튼">
+    <br><br>
+    <input type="text" placeholder="아무거나">
+    <br><br>
+    <input type="text" placeholder="disabled" disabled >
+    <br>
+
+   <div class="block">  
+        <div class ="box"> 1번 </div>    
+        <div class ="box"> 2번 </div>    
+        <div class ="box"> 3번 </div>    
+        <div class ="box"> 4번 </div>    
+        <div class ="box"> 5번 </div>    
+  </div>
+
+</body>
+</html>

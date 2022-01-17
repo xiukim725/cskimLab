@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding:0;
+            box-sizing: border-box;
+
+        }
+        .box div {
+            display: inline-block;
+            width : 100px;height: 20px;
+            background-color: rgb(235, 200, 235, 0.5);
+        }
+        
+        .box div + div {
+            border-left :3px solid red; 
+            /* margin-left : -1em; */
+        }    
+    </style>
+
+</head>
+<body>
+    <P>형제 선택자를 이용한 줄긋기</P>
+
+    <div class='box'>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+</body>
+</html>

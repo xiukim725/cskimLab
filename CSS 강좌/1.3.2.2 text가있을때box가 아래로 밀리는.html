@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inline-block3</title>
+
+    <!-- 
+    inline-block 객체내에 text가 있을때 box가 변형되는 issue
+        - inline 요소의 vertical 배치의 기본값이 baselin이기때문에
+        - box내의 text의 마지막줄에 맞추어 box가 이동하게된다.
+        이를 해결하기 위해서
+        vertical-align: top 을 하거나
+        overflow : hidden; 을 한다.
+        
+    the issue is due to default vertical alignment of inline elements – baseline, 
+    the text inside element affects it and pushes div to the bottom. 
+    
+    Use vertical-align: top, 
+        or 
+        overflow : hidden;
+
+
+    -->
+
+    <style>
+
+        *{
+            margin : 0;
+            box-sizing: border-box;
+            padding : 0;
+        }
+
+
+        [class*='b']{
+            border :10px solid gray;
+            height: 300px;
+            /* overflow:hidden; */
+            /* vertical-align: top; */
+        }
+
+        .box1{
+           
+            width : 300px;
+            display: inline-block;
+            
+        }
+        
+        .box{          
+            background-color: rgb(156, 135, 175);
+        }
+
+        .box2{
+           display: inline-block;
+            width : 200px;
+           margin-left : -1em; 
+        }
+        
+    </style>
+
+</head>
+<body>
+    <div class='round1'>
+        <div class='box1 box' id='b1'>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, dolorum!</p>
+        </div>
+        
+            <div class='box2'>Lorem, ipsum dolor.</div>
+    
+    
+    
+        
+
+</body>
+</html>

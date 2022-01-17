@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inline-block 상단 고정</title>
+
+    <!-- inline-block의 vertical-align default는 baseline이다.
+         따라서 block에 text를 추가하면 빈box의 하단이 baseline이므로
+         text를 빈box의 하단에 맞추기위해 text를 입력한 box가 아래로 내려오는 상황이 발생한다.
+         
+         web에 문자를 추가할때마다 이렇게 box가 움직이면 않되므로
+         이때는 vertical-align : top을 자식요소에 사용하여 box를 고정시킨다.
+
+         자식요소에 margin-top으로 box를 상하로 이동시켜놓거나,
+         padding-top으로 text 위치를 옯겨놓더라도 
+         마찬가지로 text 입력시 box는 움직이지 않는다.
+         
+         vertical-align : top 은 상속속성이 있으므로 
+         부모요소에 선언하여 자식box까지 상속되게 하면 된다. 이건 안되네 ???
+        
+        -->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .container{
+            
+            vertical-align: top; 
+            /*상속속성에 의해 자식box에 영향을 미친다 ???*/
+
+        }
+        .b2{
+            padding-top : 10px;
+          
+        }
+        .box{
+            display :inline-block;
+            width:100px ; height: 100px;
+            background-color: darkgrey;
+            vertical-align: top;
+            color :white;
+        }
+
+        .b1{
+            margin-top : 10px;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <div class ='container'>
+        <div class ='box'>vertical-align: top;</div>
+        <div class ='box'>vertical-align: top;</div>
+
+        <!-- margin-top, padding-top을 설정하더라도 text 입력시 box는 움직이지 않는다. -->
+        
+        <div class ='box b1'>margin-top;</div>
+        <div class ='box b2'>padding-top</div>
+    </div>
+</body>
+</html>

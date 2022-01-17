@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>baseline과 inline-block</title>
+
+    <!-- baseline과 inline-block
+    
+    inline-block을 사용하여 box가 가로로 놓여있을때 ,
+    해당 box요소들의 default baseline은 부모객체의 baseline이다.
+    
+    그리고 부모객체의 baseline은 요소객체의 bottom line (bottom margin edge)이다.
+    이상태에서 요소객체에 text가 추가되게 되면
+    그 요소객체의 baseline은 부모객체의 baseline을 따르게 되고,
+    text는 box의 상단에 쓰여지게되므로 
+    요소 text의 base line과 부모 객체의 base line을 맞추기 위해 요소box가 아래로 내려가게된다.
+     
+
+    요약하면
+    1) inline-block들중 빈객체가 있을때
+       이 줄의 baseline은 빈객체의 최하단(bottom margin edge)이다.
+       이때 같은 줄에 text가 있는 객체의 text의 마지막줄이 이 baseline에 맞추어지도록 
+       요소BOX가 아래로 내려가며 정열된다.  
+    
+    2）inline-block이 빈객체가 아닐때,
+       baseline은 임의의 객체의 마지막줄이 baseline이 된다.
+
+    더 간단히 정리하면
+    
+    부모요소와 자식요소의 baseline은 자식요소중 빈box인 요소의 bottom line이다.
+    box의 정렬은 linebox의 상단은 움직일수 없으므로
+    빈box는 위로 올라가고, 부모객체의 baseline도 올라가고 ,text가 있는 box는 내려가게된다.   
+    
+       https://infoheap.com/css-inline-block-baseline-alignment/
+    -->
+
+    <style>
+
+        .outer , .outer0 ,.outer2{
+            border : 1px  blue solid;
+                  }
+
+        .outer > * {
+          display:inline-block;
+          background-color:lightgreen;
+        }
+        .one {width:200px; height:100px;}
+        .two {width:200px; height:100px;}
+
+        .outer0 div , .outer2 div{
+            display:inline-block;
+            background-color:lightgreen;
+            width:200px; height:150px;}
+        
+        .outer0 .two {width:200px; height:100px;}    
+
+        </style>
+</head>
+<body>
+    <div class="outer"> 
+        <div class="one">inline-block baseline alignment – empty div </div>
+        <div class="two"></div>
+        </div>
+    <br><br>
+    <div class="outer2"> 
+        <div class="one">nline-block baseline alignment basic - with text</div>
+        <div class="two">The baseline of div element is the baseline of its last line box in the normal flow. 
+            Here both divs are aligned based on last text line.</div>
+    </div>    
+    <br><br>
+    
+    <div class="outer0"> 부모객체의 baseline은 요소객체의 bottomline이다  
+        <div class="one"></div>
+        <div class="two"></div>
+        </div>
+    <br><br>
+    <div class="outer"> 부모요소에 text가 있을때  
+        <div class="one">inline-block baseline alignment – empty div </div>
+        <div class="two"></div>
+        </div>
+    <br><br>
+    <div class="outer2"> 부모요소에 text가 있을때
+        <div class="one">nline-block baseline alignment basic - with text</div>
+        <div class="two">The baseline of div element is the baseline of its last line box in the normal flow. 
+            Here both divs are aligned based on last text line.</div>
+        <div></div>    
+    </div>
+</body>
+</html>

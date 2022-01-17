@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>top:50%와 bottom:50%의 차이</title>
+
+    <!-- top/bottom에 %로 값을 주면, position이 있는 가장 가까운 상위요소의 
+         heigt 값의 %를 가져온다는 것을 안다. 
+        0%, 50%, 100%의 위치를 이해하고, real한 50%를 어떻게 하면 구현할 수 있을지 연구해보자
+    
+        https://seeminglyjs.tistory.com/292
+    -->
+
+    <style>
+        [class ^='p']{
+            position: relative;
+            width : 200px;
+            height: 100px;
+            background-color: rgba(197, 178, 178, 0.5);
+            font-size: 10px;
+            text-align: center;
+        }
+        .per0 div:first-child{
+            position: absolute;
+            top:0%;
+            width : 50px;
+            height: 30px;
+            color:white;
+            background-color: blue;
+        }
+
+        .per0 div:last-child{
+            position: absolute;
+            bottom:0%;
+            width : 50px;
+            height: 30px;
+            color:white;
+            background-color: #ff0080;
+        }
+        .per100 div:first-child{
+            position: absolute;
+            top:100%;
+            width : 50px;
+            height: 30px;
+            color:white;
+            background-color: blue;
+        }
+
+        .per100 div:last-child{
+            position: absolute;
+            bottom:100%;
+            width : 50px;
+            height: 30px;
+            color:white;
+            background-color: #ff0080;
+        }
+        
+        .per50 div:first-child{
+            position: absolute;
+            top:50%;
+            width : 50px;
+            height: 30px;
+            color:white;
+            background-color: blue;
+        }
+
+        .per50 div:last-child{
+            position: absolute;
+            bottom:50%;
+            width : 50px;
+            height: 30px;
+            color:white;
+            background-color: #ff0080;
+        }
+
+        .p_real50 div:first-child{
+            position: absolute;
+            top: calc(50% - 15px);
+            width : 50px;
+            height: 30px;
+            color:white;
+            background-color: blue;
+        }
+
+        .p_real50 div:last-child{
+            position: absolute;
+            bottom:calc(50% - 15px);
+            width : 50px ;
+            height: 30px;
+            color:white;
+            background-color: #ff0080;
+            right: 0;
+        }
+    </style>
+
+
+
+</head>
+<body>
+    <div class='per0'>
+        <div>top 0%</div>
+        <div>bottom 0%</div>
+    </div>    
+        <br><br>
+    <div class='per100'>
+        <div>top 100%</div>
+        <div>bottom 100%</div>
+    </div>    
+        <br><br>
+    <div class='per50'>
+        <div>top 50%</div>
+        <div>bottom 50%</div>
+    </div>
+        <br><br>
+    <div class='p_real50'>
+        <div>top 50%</div>
+        <div>bottom 50%</div>
+    </div>
+        <br>
+    
+</body>
+</html>

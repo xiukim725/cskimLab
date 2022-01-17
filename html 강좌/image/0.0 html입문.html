@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)http://127.0.0.1:5500/0.0%20html%EC%9E%85%EB%AC%B8.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         
+         <meta name="viewport" content="width=device-width, initial-scale=1.0" <title=""> </head><body style="">h tag 
+   
+            <p> test</p>
+
+<!-- h1 tag는 하나의 html 문서에 한번만 사용합니다. 
+      h1 tag부터 h6로 순차적으로 사용하도록 합니다.  -->          
+
+            <h1> h1</h1>
+            <h2> h2</h2>
+            <h3> h3</h3>
+            <h4> h22</h4>
+            <h5> aaa</h5>
+            <h6> aaa</h6>
+
+<!-- p tag는 웹브라우저의 가로 한줄을 사용하는 Tag
+space bar는 인식않음. 띄어쓰기는 &nbsp;로 
+엔터키도 인식않음. 줄바꿈은 <br> tag로 -->
+
+            <p>Lorem       &nbsp;     ipsum dolor               sit amet consectetur adipisicing elit. 
+               Facere, et aspernatur aut <br>sit quam commodi ab animi tempora quaerat? Veniam nostrum mollitia consequatur vel adipisci commodi soluta consequuntur debitis quae?
+            </p>
+
+
+<!-- a 태그 <a> Anchor: 웹페이지에서 링크 연결 
+내부link <a href= ###>     </a>  // 목차등에 사용
+외부link <a href="https: ###"></a>  
+-->
+            <!--내부link-->
+            <a href="http://127.0.0.1:5500/0.0%20html%EC%9E%85%EB%AC%B8.html#one">one로 이동</a>
+            <a href="http://127.0.0.1:5500/0.0%20html%EC%9E%85%EB%AC%B8.html#two">two로 이동</a>
+            <a href="http://127.0.0.1:5500/0.0%20html%EC%9E%85%EB%AC%B8.html#three">three로 이동</a>
+            
+            <!--외부link-->
+            <br>
+            <a href="https://www.google.com/" target="_blank"> 구글로 이동</a>
+            
+<!-- img 태그 : image 삽입 태그 
+   내부 resource
+   외부 resource
+-->
+            <br>
+            <img src="./0.0 html입문_files/우주선.png" alt="우주선" width="50">  <!-- 50px 라 적으면 않됨 ,"50%도 가능함"-->
+             
+                        <!-- . 현재html문서의 folder 
+                             \ 하위 폴더 
+                             ../../ 상위폴더의 상위 폴더 -->
+             <br>
+            <img src="./0.0 html입문_files/googlelogo_color_272x92dp.png" height="5%">
+                       
+            <br>
+<!-- 이미지 Link
+   이미지를 click하면 특정 cite로 들어가는 link방식
+   <a> 태그의 내부에 <image> 태그를 넣으면 됨.   -->
+
+            <a href="https://www.google.com/" target="_blank">
+      
+                  <img src="./0.0 html입문_files/googlelogo_color_272x92dp.png" height="5%">
+
+            </a>
+
+            <br>
+<!-- image Map 
+   한개의 image에 복수의 link를 분할된 영역에 할당하는 방식 
+   https://www.youtube.com/watch?v=aZ2pBmnm9B0&list=PL-eeIUD86IjQuP9iDbQn_1eMHlPB_qdgY&index=21-->
+   
+   <img src="./0.0 html입문_files/googlelogo.png" width="24%" alt="구글이미지" usemap="#google">
+
+   <map name="google">
+      <area shape="rect" coords="0,0,272,92" href="https://google.co/" target="_blank" alt="구글홈이미지map">
+   </map>
+      <!-- imagemap 자동생성 homepage : https://www.image-map.net/-->
+
+<!--JavaScript code 구현 
+   내부script <script> ######   </script>
+   외부script <script> src = ./##.js </script>   -->     
+   
+   <!--내부script-->
+   <script>  console.log("Hello World 왜 이제 나와 !!!"); </script> 
+   <!--외부script-->
+   <script <!--="" strong="" 태그="" :="" 중요한="" text를="" 강조할="" 때="" 굵게="" em="" text의="" 강조="" ,="" 기울여="" b="" 시각적으로만="" i="" --="">
+
+            <p><strong> "위험한 놀이기구 입니다 <br>
+                     <em> 노약자나 특히 <em>임산부</em>는 탑승을 금합니다.</em>"</strong>  </p>
+
+            <p><b> "위험한 놀이기구 입니다 <br>
+               <i> 노약자나 특히 <i>임산부</i>는 탑승을 금합니다.</i>"</b>  </p>
+   
+               
+<!-- 목록 작성용 태그 
+<UL> 태그 : unordered list
+<li>     </li>
+<li>     </li>
+<ol type= "A"> 태그 : ordered list 
+
+<dl> 태그 : definition list
+<dt>  : definition title
+<dd>  : definition data   
+   
+-->            <h3> 선행 학습 </h3>
+            <ul>
+               <li> Python </li>
+               <li> javaScript </li>               
+            </ul>    
+
+            <ol type="1">
+               <li> 국어 </li>    
+               <li> 수학 </li>
+            </ol>
+
+            <h1>수코딩 레스토랑</h1>
+            <dl>
+               <dt> 라자냐</dt>
+               <dd>라자냐는 이탈리아 북부에서 유래한 파스타의 일종</dd>  
+               <dt> 필리프</dt>
+               <dd> 필리프는 쌀이나 으깬 밀과 같은 곡식으로 만든 음식 </dd>
+            </dl>
+
+               <!-- 아래는 css문임--> 
+               <p id="one" style="margin-top: 1500px;">one</p>
+               <p id="two" style="margin-top: 1500px;">two</p>
+               <p id="three" style="margin-top: 1500px;">three</p>
+               <p style="margin-top: 2000px;"></p>
+  
+   <!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+         
+
+
+
+
+
+
+
+       
+       
+</body></html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<!-- display 와 visibility 속성
+     display : 요소를 어떻게 표시할 것인가.  
+               display : none // 요소의 영역도 사라짐
+     visibility : 요소를 보일지 말지. (show, hidden)
+               visibility : hidden // 영역은 그대로 있고, 보이지만 않음.
+
+    https://webisfree.com/2014-01-12/[css]-display%EC%99%80-visibility-%EC%86%8D%EC%84%B1%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%B4-%ED%8A%B9%EC%A0%95-%EC%9A%94%EC%86%8C-%EC%82%AC%EB%9D%BC%EC%A7%80%EA%B2%8C-%EB%A7%8C%EB%93%9C%EB%8A%94-%EB%B0%A9%EB%B2%95-%EB%B0%8F-%ED%8C%81
+    
+
+-->
+<style>
+   
+    .d1 div, .d2 div{
+        width : 100px;
+        height: 100px;
+        border : solid 2px black;
+        display : inline-block;
+        text-align: center;
+        background-color: lightcoral;
+    }
+   
+    .d1 div:nth-child(2){
+        display: none;
+    }
+
+    .d2 div:nth-child(2){
+        visibility: hidden;
+    }
+    
+
+  
+</style>
+</head>
+<body>
+
+    <div class ="d1">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+    </div>
+    <br><br>
+    <div class ="d2">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+    </div>
+
+
+</body>
+</html>

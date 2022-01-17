@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동적의사클래스</title>
+
+    <!-- CSS 동적 의사 클래스 dynamic pseudo-class
+
+    링크(link)의 상태
+    
+    1. link : 링크의 기본 상태이며, 
+              사용자가 아직 한 번도 이 링크를 통해 연결된 페이지를 방문하지 않은 상태.
+    2. visited : 사용자가 한 번이라도 이 링크를 통해 연결된 페이지를 방문한 상태.
+    3. hover : 사용자의 마우스 커서가 링크 위에 올라가 있는 상태.
+    4. active : 사용자가 마우스로 링크를 클릭하고 있는 상태.
+    5. focus : 키보드나 마우스의 이벤트(event) 또는 다른 형태로 해당 요소가 포커스(focus)를 가지고 있는 상태.    
+
+        :hover는 반드시 :link와 :visited가 먼저 정의된 후에 정의되어야 정상적으로 동작합니다.
+        :active는 반드시 :hover가 먼저 정의된 후에 정의되어야 정상적으로 동작합니다.
+
+    http://tcpschool.com/css/css_selector_dynamic
+
+      -->
+
+      <style>
+		a:link {color: orange;}
+		a:visited {color: gray;}
+		a:hover {color: blue;}
+		a:active {color: red;}
+		div {
+			background-color: orange;
+			width: 300px;
+			padding: 20px;
+			text-align: center;
+		}
+		div:hover {
+			background-color: blue;
+			color: white;
+		}
+	</style>
+</head>
+
+<body>
+
+	<h1>링크 선택자를 이용한 선택</h1>
+	<p><a href="#">홈으로 가기!</a></p>
+	<div>링크 선택자를 이용한 버튼 만들기!</div>
+
+</body>
+
+</html>

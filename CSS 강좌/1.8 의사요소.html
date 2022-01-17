@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>의사요소 Pseudo-elements</title>
+<!-- 의사요소 
+        선택자에 추가하는 키워드로서,
+        선택한 요소의 특정 부분에 대한 스타일을 정의
+        
+        반드시 자식요소를 포함할 수 있는 콘테이너의 tag에만 적용가능함.
+        (input이나 form은 적용않됨  )
+        https://stackoverflow.com/questions/2587669/can-i-use-a-before-or-after-pseudo-element-on-an-input-field
+        
+        => 반면 의사클래스는 선택될 요소의 특별한 상태를 지정하는 선택자에 추가된 keyword
+
+    선택자::의사요소{속성명 : 값;}
+    li::first-letter{ font-size : 20px;}
+    // li의 첫글짜의 크기만 20px로 
+
+    ＊ ::after 와 :after의 차이
+       :은 css2에서 , ::은 css3에서 사용하는 표현으로 
+       css3에서 의사class와 의사요소를 구분하기위해 정했으나,
+       호환성을위해 :도 허용됨.
+       ie8이하는 ::은 지원하지 않음.
+       https://stackoverflow.com/questions/21676996/what-is-the-difference-between-after-and-after
+
+
+    before  : 해당tag의 contents 앞에 의사요소를 생성 및 추가
+              to insert some content before the content of an element.  
+    after   : 해당tag의 contents 뒤에 의사요소를 생성 및 추가
+    first-letter:블록레벨 요소의 첫번째 lettter에 스타일 적용 
+    first-line : 블록레벨 요소의 첫번째 선에 스타일 적용
+    selection : 해당요소에서 사용자가 선택한 부분에 대해  style적용
+    marker  : 목록기호의 스타일 적용
+    placeholder : placeholder 스타일 적용 (default: light gray)
+    
+    https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements
+-->
+<style>
+    p::first-line{
+        color:tomato;
+    }
+    p::first-letter{
+        color:yellowgreen;
+        font-size: 20px;
+    }
+
+    p::before{
+        content:"앞에다 추가한 text";
+        font-weight:bold;
+        font-size: 50px;
+    }
+    p::after{
+        content : "뒤에다 추가한 text";
+        font-weight : 800;
+        color :rgb(135, 71, 255);
+    }
+
+    li::marker{
+        color:violet;
+        font-size: 15px;
+        content: "🧡 "   /* content를 사용하면 list의 style을 변경할수있다. */
+                    
+    }
+    
+    input::placeholder{
+        font-size: 20px;
+        color:turquoise;
+    }
+        </style>
+</head>
+
+<body>
+    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam deserunt iure aliquid dolor dicta cumque incidunt asperiores expedita architecto quod. </p>
+    
+    <ul>
+        <li> 강아지</li>
+        <li> 고양이</li>
+        <li> 다람쥐</li>
+        <li> 햄스터</li>
+    </ul>
+
+    <input type="text" placeholder="아무거나 쓰세요">
+</body>
+</html>

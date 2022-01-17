@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자</title>
+   
+<!-- 선택자 
+<style>
+    - * 기본선택자 : 문서내의 모든 요소
+        *{ color:blue;}
+    
+    - 태그선택자  
+        p{ color:red;}
+    
+    - class선택자(.)
+        .text{ color : blue}
+        // class가 text인 요소 선택
+
+    - id 선택자 (#) ( 고유한 식별자)
+        #topic{ color : blue; }
+    
+    - 그룹 선택자 (,)
+        h1,p,div { color : blue;}
+
+    동일한 선택자가 있으면, 뒤의 스타일이 적용되고,
+
+    동일 요소에 선택자가 겹칠때는 id , class ,태그 선택자순으로 처리된다.    
+
+https://www.youtube.com/watch?v=BPSU127sT4o&list=PLFeNz2ojQZjuRTQGNUf6ZTz8-YRLgFFvZ&index=16&t=309s
+    
+  
+
+    - 결합 선택자 : 자손, 형제 중에서 특정 조건을 만족하는 요소 선택
+      
+      공백       : 자손 선택
+      >          : 자식만 선택   // 자식선택자file참조
+      +          : 바로 뒤에 오는 형제관계
+      ~          : 뒤에 오는 모든 형제관계
+
+      div p{ color : white;} // div 요소안에 있는 모든 p요소 선택
+
+      div > p {color : white} // div 요소안에 있는 자식 p요소만 선택 (손자는 선택하지 않음)
+
+      만약 부모class가 fa 이고 자식class가 ch일때,
+      .fa.ch 하면 띄어쓰기가 않되었기 때문에 않된다. 
+      .fa .ch 라고 해야한다.
+
+      
+</style>
+-->
+<style>
+
+
+
+/* 공백 : 자손선택자  */
+
+.grandfa .uncle {      
+    font-style: italic;
+    color : red
+}
+
+/*  > : 자식선택자   */
+
+    .grandfa > .me{      /*grangf의 자식이 내가 아니므로 css는 실행되지 않는다*/
+    background-color: aqua;
+    border : 1px solid gray
+    }
+    .fa > .me{          /*fa의 자식이 나이므로 css는 잘 실행됨*/
+    background-color: fuchsia;
+    border : 1px solid gray
+    }
+
+   
+/*  + : 첫번째 형제선택자 
+    많은 형제중 첫번째 형제만 선택 */
+   
+    .fa + .uncle{            
+        border : 3px solid red;
+    }
+/*  ~ : 형제선택자 : 모든 형제 선택 */
+    
+    .me ~ .sun{
+        background-color: gray;
+    }
+
+    
+    
+
+</style>
+
+
+</head>
+<body>
+<div class = "grandfa">grandfather
+    
+    <div class= 'fa' > father
+        <div class ="me">me  </div>
+            <div class ='sun'>sun1 </div>
+            <div class ='sun'>sun2 </div>
+                <div class = 'uncle'> sun name uncle</div>
+            <div class ='sun'>sun3 </div>
+        <div class ="fa">fa   </div>
+    </div>    
+    
+    <div class="uncle">uncle1 </div>
+    <div class="uncle">uncle2 </div>
+    
+    
+     <!--  -->
+
+
+</div>
+
+
+
+</body>
+</html>

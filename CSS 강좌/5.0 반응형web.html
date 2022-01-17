@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형 web</title>
+
+    <!-- 반응형web 구현을 위한 미디어쿼리 
+        - 화면의 크기에 따라 web page의 design이 변경
+    
+        - @media(min-width:800px) // 화면의 크기가 800보다 큰 미디어쿼리 조건 설정
+    
+    -->
+
+    <style>
+        div{
+            border : 5px solid greenyellow;
+            font-size: 60px;
+        }
+
+        @media(max-width:600px){
+            div{
+                display:none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Responsive
+    </div>
+</body>
+</html>

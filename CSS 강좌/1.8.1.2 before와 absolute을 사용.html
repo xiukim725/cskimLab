@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 
+         block단위의 요소를 display:relative로 선언하고 
+        ::before/::after 유사클래스를 선언한  display:absolute 조건에서 
+        
+        
+        left/right 속성을 지정하면
+        ::before와 after와 관계없이
+
+        left:0는 추가contents의 시작점에서 시작하여 rendering되고,
+        right:0는 추가요소의 끝선이 호출요소의 끝선에 맞추어 rendering된다.
+
+
+
+        https://stackoverflow.com/questions/37318339/how-to-absolute-position-before-pseudo-element-of-child-relative-to-parent/37318487
+     -->
+
+    <style>
+        .parent {
+        height: 20px;
+        width: 100px;
+        background-color: #080;
+        position: relative;
+        }
+
+        .child {
+            position: absolute;
+            width: 50px;
+            height: 200px;
+            opacity: 30%;
+            background-color: #008;
+            left: 50px;
+            top: 30px;
+        }
+
+        .child:before {
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid #008;
+            opacity: 150%;
+            border-left: 10px solid transparent;
+            top: -10px;
+            width: 0;
+            height: 0;
+            content: "";
+            color:black;
+            position: absolute;
+            
+           
+            /* left:0px; */
+            /* right:-10px; */
+        }
+    </style>
+
+</head>
+<body>
+    <div class="parent">
+        <div class="child">
+        </div>
+    </div> 
+</body>
+</html>

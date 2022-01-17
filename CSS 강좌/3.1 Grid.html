@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRID </title>
+
+<!-- Grid 
+     : Flex는 row나 column의 특정 방향으로 item을 배치할 때 유용하고,
+       Grid는 row,column 양방향 즉 matrix로 item이 배치 될때 유용함.
+ 
+    1) container 속성
+
+        display : grid 
+        grid-template-columns : 150px ,  1fr;
+
+
+    https://youtu.be/eprXmC_j9A4?list=PLe9WXHRkq9p3zQgGf4T6qrWJWRQpP0-TW&t=1169
+
+  
+-->
+
+
+
+
+<style>
+
+#con{
+    background: lightgray;
+    display: grid;
+    /*grid-template-columns: 40% 60%;
+      grid-template-columns: 4fr 6fr */  /*fr: fraction */
+    /* grid-template-columns: repeat(4,1fr); */
+    /* grid-template-columns: 200px 1fr; */
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 0.5rem;
+    grid-auto-rows : minmax(10em, auto);
+    /* justify-items : start;
+    align-items: stretch; */
+    /* grid-template-rows: 100px 100px 1fr; */
+}
+
+.pic{
+    background: rgba(255,0,0,0.5);
+    font-size: 12px;
+    border: lightsalmon 1px solid;
+}
+
+.pic:nth-child(5){
+    justify-self:stretch;
+    align-self: stretch ;
+}
+
+.pic:nth-child(1){
+    grid-column: 1/4;
+}
+
+.pic:nth-child(4){
+    grid-column: 3;
+
+    grid-row: 2/4;
+}
+
+.pic:nth-child(9){
+    grid-column : 3;
+    grid-row:3/5;
+}
+.pic:nth-child(even){
+    background: rgba(255,255,0,0.5);
+}
+
+    /* #grid{
+        border: 5px solid pink;
+        display : grid;
+        grid-template-columns: 150px 1fr; 1fr : 남은 우측영역 전부 
+                                            0.5fr : 남은 영역으 50% 
+    }
+
+    #gridnav{
+        display : grid;
+        grid-template-columns: 150px 1fr; 
+                                        
+    }
+                            
+    div {
+            border :5px solid gray
+        }
+
+    #article {
+        border-left: 5px solid gray;
+
+    }    
+    ol {
+    
+        padding-left: 33;
+        padding-top: 15;
+    }
+
+    span{                 span의 첫단어는 float :left 처리 , 
+                            이를위해서는 먼저 span의 display type을 default인 in-line에서 block으로 변경
+                           
+        display: block;
+        float : left;
+        width : 60px ; height : 60px;
+        margin-right : 5px; 
+        margin-bottom: 5px ;
+        background-color:#ffeecc;
+        
+    } */
+
+</style>
+
+</head>
+
+<body>
+
+  <div id='con'>   
+    <div class ='pic'>1
+        <img src="../html 강좌/image/img1.png">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos impedit labore unde incidunt, consectetur nam et nulla cupiditate ducimus rem.</p>
+    </div>
+    <div class ='pic'>2<img src="../html 강좌/image/img2.png">
+    <p>Lorem, ipsum dolor.</p></div>
+    <div class ='pic'>3<img src="../html 강좌/image/img3.png">
+    <P>Lorem, ipsum dolor sit amet consectetur </P></div>
+    <div class ='pic'>4<img src="../html 강좌/image/img4.png"></div>
+    <div class ='pic'>5<img src="../html 강좌/image/img5.png">
+    <p>Lorem, ipsum dolor.</p></div>
+    <div class ='pic'>6<img src="../html 강좌/image/img6.png"></div>
+    <div class ='pic'>7<img src="../html 강좌/image/img7.png"></div>
+    <div class ='pic'>8<img src="../html 강좌/image/img8.png"></div>
+    <div class ='pic'>9<img src="../html 강좌/image/img9.png"></div>
+   
+
+    </div>  
+
+
+
+    <!-- <div id ='grid'>
+        <DIV>NAVIGATION</DIV>
+        <DIV>ARTICLE</DIV>
+    </div>
+
+    <div id= 'gridnav'>
+        <ol>
+            <li> HTML</li>
+            <li> CSS</li>
+            <li> JavaScript</li>
+
+        </ol>
+        
+        <p id ='article'>
+            <span>HTML5</span>특정 요소와 연관되어 있지만 확정된 의미는 갖지 않는 데이터에 대한 확장 가능성을 염두에 두고 디자인되었습니다. 
+            data-* 속성은 표준이 아닌 속성이나 추가적인 DOM 속성, Node.setUserData()과 같은 다른 조작을 하지 않고도, 의미론적 표준 HTML 요소에 추가 정보를 저장할 수 있도록 해줍니다.
+            문법은 간단합니다. 어느 엘리멘트에나 data-로 시작하는 속성은 무엇이든 사용할 수 있습니다. 화면에 안 보이게 글이나 추가 정보를 엘리멘트에 담아 놓을 수 있어요. 아래 data 사용법이 있습니다:
+
+        </p>
+
+    </div> -->
+</body>
+</html>

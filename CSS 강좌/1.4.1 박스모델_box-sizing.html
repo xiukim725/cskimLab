@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box-Sizing</title>
+
+    <!-- box-sizing 속성은 요소의 width와 height를 계산하는 기준을 지정
+    
+        box-sizing : content-box // box의 크기를 content 영역만 포함
+        box-sizing : border-box  // box의 크기를 content + padding + border-width 
+                                    margin만 제외    
+
+        background 속성은 contents + padding의 배경을 정의한다. 
+
+            background-color: teal;
+            background-image: url(./ship.png);
+            background-repeat: no-repeat;     // repeat or no-repeat 
+            background-position: center bottom; 
+            background-size: cover ;          //이미지의 비율이 깨지지않는 최대 size
+            background-size: contain ;        //이미지가 잘리지않는 한도의 최대 size
+        
+        background의 하위속성을 한번에 정의할 경우 
+            background에 묶어서 표현 가능하며 순서 구분없음.
+
+        background : url() no-repeat cover ;
+      
+    -->
+
+    <style>
+
+        /* border-box는 border영역까지를 box size 영역으로 취급*/
+        .border{
+            width: 100px;height: 100px;
+            border: 5px solid tomato;
+            padding : 10px 20px;
+            box-sizing : border-box;
+            background-color: teal;
+        }
+        
+        /* content-box는 content영역까지만 box size 영역으로 취급*/
+        
+        .content{
+            width: 100px;height: 100px;
+            border: 5px solid tomato;
+            padding : 10px 20px;
+            box-sizing : content-box;
+            background-color: teal;
+        }
+
+        .image{
+            width: 600px;height: 600px;
+            border: 10px solid tomato;
+            padding : 20px 40px;
+            box-sizing : content-box;
+            
+            background-image: url(/실습/sucoding_design_house/images/room.jpg);
+            background-repeat: no-repeat;     
+            background-position: center bottom;
+            
+            
+
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+    <div class ='border'></div>
+    <div class ='content'></div>
+    <br><br>
+    <div class ='image'></div>
+    
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트꾸미기</title>
+    
+<!-- 텍스트 꾸미기
+    .font-family
+    .font-size
+        px  : 화소하나크기
+        rem : root em 
+              최상위인 <html> 태그의 폰트사이즈에 대응하는 상대적 크기
+              html 태그의 font-size default는 16px임
+        em  : 해당 요소의 폰트사이즈 값에 대응하는 상대적 크기
+              해당 요소의 폰트사이즈가 없으면 상속에의해 상위요소의 폰트size값이 적용된다.
+              상위에도 없으면 최상위인 html의 default값 16px이 적용된다.
+        
+    .font-align
+    .color
+    
+    문장중 일부 글자만 색상이나 배경색을 달리 하고 싶을때는 일부글자를 <span>tag 안에 묶어주고
+    color속성과 background-color 속성으로 꾸밀수있다.
+    
+    배경색을 형광색을 칠하고 싶을때
+    -    http://mwultong.blogspot.com/2006/09/html-css-highlighters.html
+
+        청록색: <span style="background-color:#00FEFE">글자...</span>
+        녹색  : <span style="background-color:#00FF00">글자...</span>
+        노란색: <span style="background-color:yellow">글자...</span>
+        분홍색: <span style="background-color:#FF00FF">글자...</span>
+
+
+    https://medium.com/watcha/watcha-%EA%B0%9C%EB%B0%9C-%EC%A7%80%EC%8B%9D-px-em-rem-f569c6e76e66
+    http://triki.net/prgm/3250
+
+-->
+    <style>
+        *{font-family: '돋움','Times New Roman', Times, serif;} /* 첫번째가 없으면 그다음 문자형이 지원*/
+        /* *{
+            border : 1px black solid
+        } */
+        
+        span{ font-size : 1em; 
+              color:brown;
+              border : none; 
+              background-color:#FF00FF;}
+
+        .h3size{font-size: 2.5rem;color:#ff0000ff}
+        
+        p{
+            text-align: center;
+            font-size: 2.5rem;
+            color:rgb(255,0,0)}
+        
+        
+        h1{color:rgb(100%,0%,0%,50%)}
+        
+    
+    </style>
+</head>
+<body> body zzzzzzz
+    <span> zzz 1em</span>
+
+    <!-- h1~h6 tag :  https://www.w3schools.com/tags/tag_hn.asp-->
+    <h1>h1 ZZZZZZZZZZZZ 2em</h1>
+    <h2>h2 ZZZZZZZZZZZZ 1.5em</h2>
+    <h3>h3 ZZZZZZZZZZZZ 1.17em</h3>
+    <h4>h4 ZZZZZZZZZZZZ 1em</h4>
+    <h5>h5 ZZZZZZZZZZZZ 0.83em</h5>
+    <h6>h6 ZZZZZZZZZZZZ 0.67em</h6>
+
+    <h1>  h1 </h1>
+    <h2>  span 태그를 써서 <span>색상이나 배경색을 넣을수있다</span> </h2>
+    <h3 class="h3size">  h3태그지만, font-size를 바꾸면 이렇게 커짐 </h3>
+    <p>  Lorem, ipsum dolor. </p>
+    <h1>  h5 </h1>
+
+    
+
+</body>
+</html>

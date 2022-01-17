@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css로 삼각형만들기</title>
+    <!-- 
+        css로 삼각형을 만들때는
+        폭과높이를 0으로하고
+        border의 transparent 속성을 이용하여
+        top이 transparent면 윗변이 사라지고
+        right가 transparet면 우변이 사라지므로 
+        하변과 좌변만 남는 삼각형이 된다.
+
+        마찬가지로 정삼각형 , 이등변 삼각형, 직각 삼각형 등을 만들수 있다.
+
+     -->
+    <style>
+        .pa div:first-child {
+            
+            border-right: 20px solid transparent;
+            border-bottom: 20px solid #008;
+            border-left: 20px solid transparent;
+            width: 0;
+            height: 0;
+            
+        }
+
+        .pa div:nth-of-type(2) {
+            
+            border-right: 40px solid transparent;
+            border-bottom: 40px solid #008;
+            border-left: 40px solid solid;
+            width: 0;
+            height: 0;
+            
+        }
+
+        .pa div:nth-of-type(3) {
+            
+            border-right: 20px solid #008;
+            border-bottom: 30px solid transparent;
+            border-left: 10px solid transparent;
+            border-top: 30px solid transparent;
+            
+            width: 0;
+            height: 0;
+            
+        }
+        .pa div:last-child {
+            border-top: 10px solid #008;
+            border-right: 40px solid transparent;
+            border-bottom: 40px solid #008;
+            border-left: 40px solid transparent;
+            width: 0;
+            height: 0;
+            
+        }
+        .tri{
+            width: 0px;height: 0px;
+            border-top:50px solid red;
+            border-bottom:50px solid red;
+            border-right: 50px solid blue;
+            border-left: 50px solid blue;
+        }
+
+        .trap{
+            width: 10px;height: 10px;
+            border-top:50px solid red;
+            border-bottom:50px solid red;
+            border-right: 50px solid blue;
+            border-left: 50px solid blue;
+        }
+
+
+    </style>
+
+</head>
+
+  
+<body>
+    <div class ='pa'>
+        <div></div>
+        <br>
+        <div></div>
+        <br>
+        <div></div> 
+        <br>
+        <div></div>       
+       
+    </div>
+    <br>
+
+    <div class="tri"></div>
+    <br>
+
+    <div class="trap"></div>
+</body>
+</html>

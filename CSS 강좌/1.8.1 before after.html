@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:before :after의 사용 용도 예</title>
+
+    <style>
+
+        호출요소::before/::after
+
+         - 호출요소 type이  inline/block에 관계없이
+           before는 호출요소의 내부contents앞에,
+           after는 호출요소의 내부 contnets뒤에 contents를 rendering한다.
+
+
+        /* input box에 입력이 없을때와 있을때 box우측에 mark를 구분하여 표기 */
+        div {
+            background-color: rgb(241, 241, 219);
+        }
+        
+        input + span {
+        position: relative;
+        }
+
+        input + span::after {
+        position: absolute;
+        right: -10px;
+        top: 0px;
+        }
+
+        input:invalid {
+        border: 2px solid red;
+        }
+
+        input:invalid + span::before {
+        content: '✖';
+        font-size : 0.4em;
+        color: red;
+        }
+
+        input:valid + span::before {
+        content: '✓';
+        font-size: 1em;
+        color: green;
+        }
+
+        /* que) 위의 원래자료는 content가 위치이동가능한데 내가 만든 아래자료는 content가 위치이동이 않된다.
+           왜그럴까? */
+
+        .d2 + span{
+            display: inline;
+            /* position: relative; */
+            /* width : 100px;height : 30px; */
+            background-color: rgb(221, 239, 240,0.5);
+        }    
+            
+        .d2 + span::before{
+            /* position: absolute; */
+            content: '✖';
+            /* left : 0; */
+            /* top: 0; */
+            /* font-size: 1em; */
+            color: green;
+        }    
+
+        .d3 + span{
+            display: block;
+            /* position: relative; */
+            width : 200px;height : 20px;
+            background-color: rgb(221, 239, 240,0.5);
+        }    
+            
+        .d3 + span::after{
+            /* position: absolute; */
+            content: '✖';
+            /* left : 0; */
+            /* top: 0; */
+            /* font-size: 1em; */
+            color: green;
+        }    
+      
+        .d4 + span{
+            display: block;
+            /* position: relative; */
+            width : 200px;height : 20px;
+            background-color: rgb(221, 239, 240,0.5);
+        }    
+        
+        .d4 + span::after{
+            /* position: absolute; */
+            content: '✖';
+            /* left : 0; */
+            /* top: 0; */
+            /* font-size: 1em; */
+            color: green;
+        }    
+        .d4 + span::before{
+            /* position: absolute; */
+            content: '✓';
+            /* left : 0; */
+            /* top: 0; */
+            /* font-size: 1em; */
+            color: green;
+        }    
+        </style>
+
+
+</head>
+<body>
+    <div>
+        <label for="fname">First name *: </label>
+        <input id="fname" name="fname" type="text" required>
+        <span></span>  <!-- 빈span에 input값에 따라 문자를 출력 -->
+    </div>
+
+    <hr>
+  
+    <div class ='d2'></div>
+    <span>inline요소:: before</span>
+    
+    <hr>
+
+    <div class ='d3'></div>
+    <span>block요소::after</span>
+
+
+    <hr>
+
+    <div class ='d4'></div>
+    <span></span>
+</body>
+</html>
